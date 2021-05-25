@@ -174,3 +174,7 @@
 - launchy
 - capybara
 - webdrivers
+
+- カリキュラム外のGem
+  - redcarpet  [マークダウン形式に対応させるgem](https://github.com/vmg/redcarpet)
+  - coderay  [シンタックスハイライトに対応させるgem](https://github.com/rubychan/coderay)
