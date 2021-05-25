@@ -161,6 +161,8 @@
 - capistrano-rails
 - capistrano-rbenv
 - capistrano3-unicorn
+- omniauth
+- omniauth-google-oauth2
 - dotenv-rails
 - faker
 - kaminari
