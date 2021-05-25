@@ -1,24 +1,174 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### 1.アプリ名
 
-Things you may want to cover:
+オリジナルガイドブック作成アプリ
+**「旅の指南書」**
 
-* Ruby version
+---
 
-* System dependencies
+### 2.概要
 
-* Configuration
+**ニッチ**も**王道**も**地味**も**映え**も関係ない！  
+**あなたが推したいと思ったスポットでつくる旅のワンページガイドブック。**
 
-* Database creation
+世の中に旅の口コミサイト・ガイドブックは数あれど、  
+**大半がメジャーどころ・一般受けするスポットに紐づいたもの**ばかり…  
+だが旅の醍醐味はそればかりじゃない！  
+**他の人にとっては路傍の石でも、あなたが楽しいと思ってお出かけしたなら**  
+**そこは立派な旅のメインスポットです。**
 
-* Database initialization
+「旅の指南書」は、ニッチな場所でも王道でも、地味でも映えでも関係なく、  
+誰でも手軽に自分の推したいスポットに焦点をあてて  
+旅のガイドブック化することができるアプリケーションです。
 
-* How to run the test suite
+---
 
-* Services (job queues, cache servers, search engines, etc.)
+### 3.コンセプト
 
-* Deployment instructions
+自分の楽しかった旅の思い出をちょろっとまとめて人に紹介したい！  
+どこかの口コミサイトや紹介サイトに投稿するのもいいでしょう。  
+しかしどこかのサービスに投稿するとしたら、やっぱりそのサービスの  
+雰囲気からあんまりノリの外れたものは載せずらいですし、  
+観光名所のメインから外れたスポットを紹介しても  
+低評価や難癖をつけられる可能性だってなくもありません。
 
-* ...
+そうなると自分のブログやSNSで独自に発信するしかないわけで、  
+パワーのある人は実際そうやって面白独自コンテンツをつくりあげています。
+
+ただ世の中の人は、そんなパワーユーザーばかりではないでしょう？
+
+書く側の悩みとしては、  
+**「別にわざわざこのためにブログやnoteを新規立ち上げするほどでもないんよな」**  
+**「せやかていっつも使うとるTwitterで連続投稿するのめんどくさいし邪魔くさいんや！」**  
+そもそも見る側も  
+**「この人の旅日記見るの楽しいんやけどTwitterで遡りづらいわ」**  
+**「個人コンテンツにたどり着くのに結局のところGoogle検索の偶然に頼らなあかん」**  
+などのめんどくささを抱えがち。
+
+それらの問題を解決し、気兼ねなく、自分の好きなように、かつ手軽に  
+ガイドブックの体裁を整えたページを作成して、  
+いろんな人にシェアすることができるアプリケーション  
+それがオリジナルガイドブック作成アプリ **「旅の指南書」** です。
+
+---
+
+### 4.バージョン情報
+
+- **Ruby 2.6.5**
+- **Ruby on Rails 5.2.5**
+
+---
+
+### 5.機能一覧
+
+- **旅ガイドページCRUD機能**
+  - 旅ガイドページの一覧表示/新規作成/詳細表示/編集/削除ができる
+  - 旅ガイドページのタイトル検索ができる
+  - 旅ガイドページの都道府県検索ができる
+  - 旅ガイドページの公開/非公開が設定できる
+
+
+- **ログイン機能**
+  - deviseを使用
+  - 旅ガイドページの一覧・詳細閲覧以外の機能はログインユーザーのみに限定する
+  - 旅ガイドページの編集/削除機能は作成者本人のみに限定する
+  - ゲストユーザーでログインできる
+
+
+- **OAuth認証**
+  - Googleアカウントを使用したOAuth認証を実装
+
+
+- **マイページ機能**
+  - 自分のアカウント情報の閲覧/編集ができる
+  - 自分の旅ガイドページ一覧が閲覧できる
+
+
+- **お気に入り機能**
+  - 気に入った旅ガイドページをお気に入り登録することができる
+  - お気に入り登録した旅ガイドページの一覧をマイページで閲覧できる
+
+
+- **フォロー機能**
+  - 好きな旅ガイド（ユーザー）をフォローすることができる
+  - フォローした旅ガイドの一覧をマイページで閲覧できる
+
+
+- **シェアボタン機能**
+  - Twitter/Facebook/LINEで任意の旅ガイドページをシェアできるシェアボタンを実装
+
+
+- **管理者権限**
+  - ユーザー情報の一覧表示/新規作成/詳細表示/編集/削除ができる
+  - 全旅ガイドページの一覧表示/新規作成/詳細表示/編集/削除ができる
+
+
+- **メッセージ機能**
+  - 旅ガイド（ユーザー）へメッセージを送信できる
+
+
+- **画像投稿機能**
+  - サムネイルになるメイン画像を1枚、参考画像を複数枚投稿できる
+
+
+- **地図登録機能**
+  - 登録住所からGoogleMapを表示
+
+---
+
+### 6.カタログ設計
+
+[カタログ設計 Googleスプレッドシートへ](https://docs.google.com/spreadsheets/d/18Xw2zgjNRzB6-C02imdrZv5aYeufmeWKqW8L8y7r4rI/edit#gid=1218363235)
+
+
+---
+
+### 7.テーブル定義
+
+[テーブル定義 Googleスプレッドシートへ](https://docs.google.com/spreadsheets/d/18Xw2zgjNRzB6-C02imdrZv5aYeufmeWKqW8L8y7r4rI/edit#gid=1922889432)
+
+---
+
+### 8.ER図
+
+[ER図 Googleスプレッドシートへ](https://docs.google.com/spreadsheets/d/18Xw2zgjNRzB6-C02imdrZv5aYeufmeWKqW8L8y7r4rI/edit#gid=1640195959)
+
+---
+
+### 9.画面遷移図
+
+[画面遷移図 Googleスプレッドシートへ](https://docs.google.com/spreadsheets/d/18Xw2zgjNRzB6-C02imdrZv5aYeufmeWKqW8L8y7r4rI/edit#gid=1436318083)
+
+---
+
+### 10.ワイヤーフレーム
+
+[ワイヤーフレーム Googleスプレッドシートへ](https://docs.google.com/spreadsheets/d/18Xw2zgjNRzB6-C02imdrZv5aYeufmeWKqW8L8y7r4rI/edit#gid=87985135)
+
+---
+
+### 10.使用予定Gem
+
+- carrierwave
+- mini_magick
+- letter_opener_web
+- fog-aws
+- unicorn
+- mini_racer
+- capistran
+- capistrano-bundler
+- capistrano-rails
+- capistrano-rbenv
+- capistrano3-unicorn
+- dotenv-rails
+- faker
+- kaminari
+- kaminari-bootstrap
+- rspec-rails
+- database_cleaner
+- spring-commands-rspec
+- factory_bot_rails
+- launchy
+- capybara
+- webdrivers
