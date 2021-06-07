@@ -8,6 +8,14 @@ class User < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
+  def follow!(other_user)
+    active_relationships.create!(followed_id: other_user.id)
+  end
+
+  def following?(other_user)
+    active_relationships.find_by(followed_id: other_user.id)
+  end
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
