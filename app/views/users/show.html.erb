@@ -13,7 +13,10 @@
     <table>
       <tr>
         <th>ユーザー名</th>
-        <td><%= @user.name %></td>
+        <td>
+          <span class="name"><%= @user.name %></span>
+          <%= render 'follow_form', user: @user %>
+        </td>
       </tr>
       <tr>
         <th>自己紹介</th>

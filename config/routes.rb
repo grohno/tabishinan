@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   }
   resources :users
   resources :favorites, only: [:index, :create, :destroy]
+  resources :relationships, only: [:index, :create, :destroy]
 end
