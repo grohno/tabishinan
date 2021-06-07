@@ -1,3 +1,11 @@
+<div class="search_box" >
+  <%= form_with(local: true, method: :get, url: guides_path ) do |form| %>
+    <%= form.label :search_title, I18n.t('views.messages.search_title') %>
+    <%= form.text_field :search_title, placeholder: I18n.t('views.messages.search_by_title') %>
+    <%= form.submit I18n.t('views.messages.search'), name: "search" %>
+  <% end %>
+</div>
+
 <% if user_signed_in? %>
   <p><%= link_to I18n.t('views.messages.new_guide'), new_guide_path %></p>
 <% end %>
