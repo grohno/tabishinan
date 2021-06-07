@@ -238,3 +238,4 @@ ja:
       do_favorite_deletion: 'お気に入り削除する'
       go_favorites_index: 'お気に入り一覧を見る'
       follow: 'フォローする'
+      unfollow: 'フォロー解除'
