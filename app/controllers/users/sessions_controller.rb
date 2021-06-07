@@ -12,7 +12,7 @@ class Users::SessionsController < Devise::SessionsController
   def admin_guest_sign_in
     user = User.admin_guest
     sign_in user
-    user.admin = true
+    user.update(admin: true)
     redirect_to admin_users_path, notice: I18n.t('views.messages.logged_in_as_admin_guest_user')
   end
 
