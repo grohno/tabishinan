@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  image: MyText
+  main_flag: false
+  guide: one
+
+two:
+  image: MyText
+  main_flag: false
+  guide: two
