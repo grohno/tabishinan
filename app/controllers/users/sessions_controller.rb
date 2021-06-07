@@ -9,6 +9,13 @@ class Users::SessionsController < Devise::SessionsController
     redirect_to guides_path, notice: I18n.t('views.messages.logged_in_as_guest_user')
   end
 
+  def admin_guest_sign_in
+    user = User.admin_guest
+    sign_in user
+    user.admin = true
+    redirect_to admin_users_path, notice: I18n.t('views.messages.logged_in_as_admin_guest_user')
+  end
+
   # GET /resource/sign_in
   # def new
   #   super
