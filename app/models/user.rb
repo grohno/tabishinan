@@ -22,4 +22,12 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+   before_destroy :ensure_has_admin
+   private
+   def ensure_has_admin
+     if User.where(admin: true).count == 1 && self.admin?
+       throw(:abort)
+     end
+   end
 end
