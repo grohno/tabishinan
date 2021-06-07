@@ -59,5 +59,8 @@
   </li>
 <% end %>
 </ul>
+<div class="pagination_block">
+  <%= paginate @guides %>
+</div>
 
 <%= link_to I18n.t('views.messages.back_index'), guides_path %>
