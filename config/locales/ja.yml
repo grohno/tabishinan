@@ -240,3 +240,5 @@ ja:
       follow: 'フォローする'
       unfollow: 'フォロー解除'
       go_following_index: 'フォロー一覧を見る'
+      cannot_destroy_user: '管理者は削除できません。'
+      cannot_access_admin: '管理画面へは、管理者以外はアクセスできません'
