@@ -4,9 +4,17 @@ class GuidesController < ApplicationController
 
   def index
     if params[:search]
-      @guides = Guide.where("title LIKE ?", "%#{params[:search_title]}%")
+      if params[:search_title].present? && params[:search_prefecture].present?
+        @guides = Guide.search_title(params[:search_title]).search_prefecture(params[:search_prefecture])
+      elsif params[:search_title].present?
+        @guides = Guide.search_title(params[:search_title])
+      elsif params[:search_prefecture].present?
+        @guides = Guide.search_prefecture(params[:search_prefecture])
+      else
+        @guides = Guide.order(created_at: :desc)
+      end
     else
-      @guides = Guide.all
+      @guides = Guide.order(created_at: :desc)
     end
   end
 
