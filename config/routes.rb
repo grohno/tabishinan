@@ -5,4 +5,5 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   resources :users
+  resources :favorites, only: [:index, :create, :destroy]
 end
