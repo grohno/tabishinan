@@ -1,2 +1,6 @@
-<h1>Tops#index</h1>
-<p>Find me in app/views/tops/index.html.erb</p>
+<h1>旅の指南書</h1>
+
+<p><%= link_to I18n.t('views.messages.go_guide_index'), guides_path %></p>
+
+<p><%= link_to I18n.t('views.messages.new_registration'), new_user_registration_path %></p>
+<p><%= link_to I18n.t('views.messages.login'), new_user_session_path %></p>
