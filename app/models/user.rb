@@ -20,6 +20,13 @@ class User < ApplicationRecord
     active_relationships.find_by(followed_id: other_user.id).destroy
   end
 
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.name = 'Guest'
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
