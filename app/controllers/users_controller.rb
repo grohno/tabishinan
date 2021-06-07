@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def show
-    @guides = @user.guides
+    @guides = @user.guides.page(params[:page]).per(5)
   end
 
   def edit
