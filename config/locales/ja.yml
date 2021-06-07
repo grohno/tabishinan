@@ -205,3 +205,8 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  views:
+    messages:
+      create_guide: '旅ガイドを作成しました！'
+      update_guide: '旅ガイドを更新しました！'
+      destroy_guide: '旅ガイドを削除しました'
