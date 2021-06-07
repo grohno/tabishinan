@@ -232,3 +232,5 @@ ja:
       search: '検索'
       search_prefectures: '都道府県検索'
       please_selected: '選択してください'
+      register_favorite: 'お気に入り登録しました！'
+      delete_favorite: 'お気に入り削除しました'
