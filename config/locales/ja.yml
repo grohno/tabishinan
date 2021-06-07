@@ -216,3 +216,5 @@ ja:
       login: 'ログイン'
       show: '詳細を見る'
       new_guide: '旅ガイドを書く！'
+      confirm_submit: 'この情報で登録してよろしいですか？'
+      back_index: '一覧に戻る'
