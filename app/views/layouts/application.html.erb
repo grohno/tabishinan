@@ -3,7 +3,7 @@
   <head>
     <title>Tabishinan</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=2.0,user-scalable=yes">
-    
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,6 +13,9 @@
 
   <body>
     <% if user_signed_in? %>
+      <% if admin? %>
+        <%= link_to I18n.t('views.messages.admin_index'), admin_users_path %>
+      <% end %>
       <%= link_to I18n.t('views.messages.my_page'), user_path(current_user.id) %>
       <%= link_to I18n.t('views.messages.logout'), destroy_user_session_path, method: :delete %>
     <% else %>
