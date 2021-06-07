@@ -2,6 +2,8 @@
   <%= form_with(local: true, method: :get, url: guides_path ) do |form| %>
     <%= form.label :search_title, I18n.t('views.messages.search_title') %>
     <%= form.text_field :search_title, placeholder: I18n.t('views.messages.search_by_title') %>
+    <%= form.label :search_prefecture, I18n.t('views.messages.search_prefectures') %>
+    <%= form.select :search_prefecture, Guide.prefectures.keys, { include_blank: I18n.t('views.messages.please_selected') } %>
     <%= form.submit I18n.t('views.messages.search'), name: "search" %>
   <% end %>
 </div>
