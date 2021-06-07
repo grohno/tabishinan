@@ -13,6 +13,7 @@
   <div class="item right">
     <p class="data_group">
       <span class="name">ユーザー名:<%= @guide.user.name %></span>
+      <%= link_to I18n.t('views.messages.show'), user_path(@guide.user.id) %>
     </p>
     <p class="title"><%= @guide.title %></p>
     <div class="location">
