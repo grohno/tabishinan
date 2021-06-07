@@ -3,6 +3,12 @@
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
+  def guest_sign_in
+    user = User.guest
+    sign_in user
+    redirect_to guides_path, notice: I18n.t('views.messages.logged_in_as_guest_user')
+  end
+
   # GET /resource/sign_in
   # def new
   #   super

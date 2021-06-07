@@ -246,3 +246,5 @@ ja:
       back_admin_index: '管理画面へ戻る'
       go_guide_index: 'みんなのガイドブックを見る！'
       go_top_index: 'トップページへ戻る'
+      guest_sign_in: 'ゲストログイン（閲覧用）'
+      logged_in_as_guest_user: 'ゲストユーザーとしてログインしました。'
