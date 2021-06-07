@@ -224,3 +224,5 @@ ja:
       confirm_delete: '本当に削除してよろしいですか？'
       update_user: 'ユーザー情報を更新しました！'
       destroy_user: 'ユーザーを削除しました'
+      edit_user: 'ユーザー情報編集'
+      delete_user: 'ユーザー情報削除'
