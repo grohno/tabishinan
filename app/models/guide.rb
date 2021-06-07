@@ -2,6 +2,8 @@ class Guide < ApplicationRecord
   belongs_to :user
   has_many :pictures, dependent: :destroy
   accepts_nested_attributes_for :pictures, allow_destroy: true
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_users, through: :favorites, source: :user
 
   validates :title, presence: true, length: { maximum: 255 }
   validates :prefecture, presence: true
