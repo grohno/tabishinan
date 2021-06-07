@@ -38,8 +38,15 @@
           <%= link_to I18n.t('views.messages.go_favorites_index'), favorites_path %>
         </td>
       </tr>
+      <tr>
+        <th>フォローしたユーザー</th>
+        <td>
+          <span class="follower_count"><%= @user.following.count %>件</span>
+          <%= link_to I18n.t('views.messages.go_following_index'), relationships_path %>
+        </td>
+      </tr>
       <% end %>
-    </table>
+      </table>
 
     <% if @user.id == current_user.id %>
       <%= link_to I18n.t('views.messages.edit_user'), edit_user_path(@user.id), data: { confirm: I18n.t('views.messages.confirm_edit') } %>
