@@ -42,6 +42,7 @@ class GuidesController < ApplicationController
   end
 
   def show
+    @favorite = current_user.favorites.find_by(guide_id: @guide.id) if user_signed_in?
   end
 
   def edit
