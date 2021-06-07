@@ -16,6 +16,10 @@ class User < ApplicationRecord
     active_relationships.find_by(followed_id: other_user.id)
   end
 
+  def unfollow!(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
