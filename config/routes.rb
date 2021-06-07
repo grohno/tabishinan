@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   resources :users
+  namespace :admin do
+   resources :users
+  end
   resources :favorites, only: [:index, :create, :destroy]
   resources :relationships, only: [:index, :create, :destroy]
 end
