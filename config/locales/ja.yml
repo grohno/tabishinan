@@ -227,3 +227,6 @@ ja:
       edit_user: 'ユーザー情報編集'
       delete_user: 'ユーザー情報削除'
       back_usershow: 'ユーザーページに戻る'
+      search_title: 'タイトル検索'
+      search_by_title: 'タイトルで検索する'
+      search: '検索'
