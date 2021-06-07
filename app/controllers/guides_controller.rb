@@ -5,16 +5,16 @@ class GuidesController < ApplicationController
   def index
     if params[:search]
       if params[:search_title].present? && params[:search_prefecture].present?
-        @guides = Guide.search_title(params[:search_title]).search_prefecture(params[:search_prefecture])
+        @guides = Guide.search_title(params[:search_title]).search_prefecture(params[:search_prefecture]).page(params[:page]).per(5)
       elsif params[:search_title].present?
-        @guides = Guide.search_title(params[:search_title])
+        @guides = Guide.search_title(params[:search_title]).page(params[:page]).per(5)
       elsif params[:search_prefecture].present?
-        @guides = Guide.search_prefecture(params[:search_prefecture])
+        @guides = Guide.search_prefecture(params[:search_prefecture]).page(params[:page]).per(5)
       else
-        @guides = Guide.order(created_at: :desc)
+        @guides = Guide.order(created_at: :desc).page(params[:page]).per(5)
       end
     else
-      @guides = Guide.order(created_at: :desc)
+      @guides = Guide.order(created_at: :desc).page(params[:page]).per(5)
     end
   end
 
