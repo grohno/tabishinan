@@ -210,3 +210,7 @@ ja:
       create_guide: '旅ガイドを作成しました！'
       update_guide: '旅ガイドを更新しました！'
       destroy_guide: '旅ガイドを削除しました'
+      my_page: 'マイページ'
+      logout: 'ログアウト'
+      new_registration: '新規登録'
+      login: 'ログイン'
