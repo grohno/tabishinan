@@ -10,6 +10,13 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <%= link_to I18n.t('views.messages.my_page'), user_path(current_user.id) %>
+      <%= link_to I18n.t('views.messages.logout'), destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to I18n.t('views.messages.new_registration'), new_user_registration_path %>
+      <%= link_to I18n.t('views.messages.login'), new_user_session_path %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
