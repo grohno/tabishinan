@@ -1,0 +1,26 @@
+<% if user_signed_in? %>
+  <p><%= link_to I18n.t('views.messages.new_guide'), new_guide_path %></p>
+<% end %>
+
+<ul>
+<% @guides.each do |guide| %>
+  <li class="flex">
+    <p class="img item">
+      <% main_flag_picture = guide.pictures.find { |picture| picture[:main_flag] == true} %>
+      <% if main_flag_picture[:image] != nil %>
+        <%= image_tag main_flag_picture.image.url %>
+      <% else %>
+        まだメイン画像が登録されていません
+      <% end %>
+    </p>
+    <div class="left item">
+      <p class="title"><%= guide.title %></p>
+      <p class="data_group">
+        <span class="name">ユーザー名:<%= guide.user.name %></span>
+        <span class="prefecture">都道府県:<%= guide.prefecture %></span>
+      </p>
+      <p class="show_btn"><%= link_to I18n.t('views.messages.show'), guide_path(guide.id) %></p>
+    </div>
+  </li>
+<% end %>
+</ul>

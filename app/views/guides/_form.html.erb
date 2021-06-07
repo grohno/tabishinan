@@ -1,0 +1,81 @@
+<%= form_with(model: @guide, local: true) do |form| %>
+  <% if @guide.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @guide.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @guide.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <section id="fields">
+    <table>
+      <tr>
+        <th>
+          <%= form.label :title %>
+        </th>
+        <td>
+          <%= form.text_field :title %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          所在地情報
+        </th>
+        <td>
+          <%= form.label :prefecture %>
+          <%= form.select :prefecture, Guide.prefectures.keys %>
+          <%= form.label :address %>
+          <%= form.text_field :address %>
+          <%= form.label :note %>
+          <%= form.text_area :note %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <%= form.label :content %>
+        </th>
+        <td>
+          <%= form.text_area :content %>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          画像登録
+        </th>
+        <td>
+        <div class="pictures">
+          <% @guide.pictures.each_with_index do |picture, i| %>
+            <% if picture[:image] != nil %>
+              <span class="picture<%= i %>"><%= image_tag picture.image.url %></span>
+            <% else %>
+              <span class="picture<%= i %>">まだ登録されていません</span>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="pictures_form">
+          <%= form.fields_for :pictures do | picture | %>
+            <span class="picture<%= picture.index %>">
+              <% if picture.index == 0 %>
+                <span>メイン画像: </span>
+                <%= picture.hidden_field :main_flag, :value => true %>
+              <% end %>
+              <%= picture.file_field :image %>
+              <%= picture.hidden_field :image_cache %>
+            </span>
+          <% end %>
+        </div>
+        </td>
+      </tr>
+    </table>
+  </section>
+
+  <div class="actions">
+    <%= form.submit data: { confirm: I18n.t('views.messages.confirm_submit') } %>
+  </div>
+
+<% end %>
+
+<%= link_to I18n.t('views.messages.back_index'), guides_path %>
