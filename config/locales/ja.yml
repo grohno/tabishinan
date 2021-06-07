@@ -244,3 +244,5 @@ ja:
       cannot_access_admin: '管理画面へは、管理者以外はアクセスできません'
       admin_index: '管理画面'
       back_admin_index: '管理画面へ戻る'
+      go_guide_index: 'みんなのガイドブックを見る！'
+      go_top_index: 'トップページへ戻る'
