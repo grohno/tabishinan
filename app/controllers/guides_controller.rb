@@ -3,7 +3,11 @@ class GuidesController < ApplicationController
   before_action :set_guide, only: [:show, :edit, :update, :destroy]
 
   def index
-    @guides = Guide.all
+    if params[:search]
+      @guides = Guide.where("title LIKE ?", "%#{params[:search_title]}%")
+    else
+      @guides = Guide.all
+    end
   end
 
   def new
