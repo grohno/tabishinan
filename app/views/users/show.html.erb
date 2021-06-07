@@ -28,6 +28,13 @@
         <th>メールアドレス</th>
         <td><%= @user.email %></td>
       </tr>
+      <tr>
+        <th>お気に入りページ</th>
+        <td>
+          <span class="favorite_count"><%= @user.favorites.count %>件</span>
+          <%= link_to I18n.t('views.messages.go_favorites_index'), favorites_path %>
+        </td>
+      </tr>
       <% end %>
     </table>
 

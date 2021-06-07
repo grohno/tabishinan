@@ -1,0 +1,36 @@
+<h2>お気に入りしたページ一覧</h2>
+
+<ul>
+<% if @favorites.size != 0 %>
+  <% @favorites.each do |favorite| %>
+    <li class="flex">
+      <p class="img item">
+        <% main_flag_picture = favorite.guide.pictures.find { |picture| picture[:main_flag] == true} %>
+        <% if main_flag_picture[:image] != nil %>
+          <%= image_tag main_flag_picture.image.url %>
+        <% else %>
+          まだメイン画像が登録されていません
+        <% end %>
+      </p>
+      <div class="left item">
+        <p class="title"><%= favorite.guide.title %></p>
+        <p class="data_group">
+          <span class="name">ユーザー名:<%= favorite.guide.user.name %></span>
+          <span class="prefecture">都道府県:<%= favorite.guide.prefecture %></span>
+          <span class="favorite_count">お気に入り数:<%= favorite.guide.favorites.count %></span>
+        </p>
+        <p class="show_btn"><%= link_to I18n.t('views.messages.show'), guide_path(favorite.guide.id) %></p>
+      </div>
+    </li>
+  <% end %>
+<% else %>
+  <li><p>お気に入り登録はまだありません。</p></li>
+<% end %>
+</ul>
+
+<div class="pagination_block">
+  <%= paginate @favorites %>
+</div>
+
+<%= link_to I18n.t('views.messages.back_index'), guides_path %>
+<%= link_to I18n.t('views.messages.back_usershow'), user_path(current_user.id) %>
