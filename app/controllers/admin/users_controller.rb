@@ -24,6 +24,7 @@ class Admin::UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
+      redirect_to admin_users_path, notice: I18n.t('views.messages.update_user')
     else
       render :edit
     end
