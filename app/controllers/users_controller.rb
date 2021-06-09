@@ -15,11 +15,7 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_edit_params)
       sign_in(@user, bypass: true) if current_user.id == @user.id
-      if current_user.admin?
-        redirect_to admin_users_path, notice: I18n.t('views.messages.update_user')
-      else
-        redirect_to user_path(@user.id), notice: I18n.t('views.messages.update_user')
-      end
+      redirect_to user_path(@user.id), notice: I18n.t('views.messages.update_user')
     else
       render :edit
     end
