@@ -12,6 +12,7 @@
  *
  *= require bootstrap/dist/css/bootstrap.min
  *= require_directory ./layout
+  *= require_directory ./github-markdown
  *= require_tree .
  *= require_self
  */

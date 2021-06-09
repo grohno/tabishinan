@@ -37,11 +37,11 @@
     <p class="title"><%= @guide.title %></p>
     <div class="location">
       <p class="address"><%= @guide.prefecture %> <%= @guide.address %></p>
-      <div class="note"><%= markdown(@guide.note) %></div>
+      <div class="note markdown-body"><%= markdown(@guide.note) %></div>
     </div>
   </div>
 </div>
-<div class="content">
+<div class="content markdown-body">
   <%= markdown(@guide.content) %>
 </div>
 <div class="pictures">

@@ -22,8 +22,10 @@
         <th>自己紹介</th>
         <td>
           <% if @user.self_introduction != nil %>
+          <div class="markdown-body">
             <%= markdown(@user.self_introduction) %>
           <% end %>
+          </div>
         </td>
       </tr>
       <% if @user.id == current_user.id %>
