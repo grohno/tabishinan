@@ -1,8 +1,57 @@
-<h1>旅の指南書</h1>
-
-<p><%= link_to I18n.t('views.messages.go_guide_index'), guides_path %></p>
-
-<p><%= link_to I18n.t('views.messages.new_registration'), new_user_registration_path %></p>
-<p><%= link_to I18n.t('views.messages.login'), new_user_session_path %></p>
-<p><%= link_to I18n.t('views.messages.guest_sign_in'), users_guest_sign_in_path, method: :post %></p>
-<p><%= link_to I18n.t('views.messages.admin_guest_sign_in'), users_admin_guest_sign_in_path, method: :post %></p>
+<div id="loading">
+  <p>
+    <span>L</span>
+    <span>O</span>
+    <span>A</span>
+    <span>D</span>
+    <span>I</span>
+    <span>N</span>
+    <span>G</span>
+  </p>
+</div>
+<header id="header">
+  <div id="slider">
+    <div class="centerbox">
+      <h1 class="item logo"><%= image_tag 'logo_top.png', size: '400xauto', alt: I18n.t('views.messages.app_name') %></h1>
+      <p class="scroll">
+        Scroll Down
+        <span class="material-icons">keyboard_arrow_down</span>
+      </p>
+    </div><!--/centerbox-->
+  </div><!--/slider-->
+</header>
+<article>
+  <div class="container">
+    <div class="introduction">
+      <p>
+        <span>ニッチも王道も地味も映えも関係ない！<br>
+        あなたが推したいと思ったスポットでつくる旅のワンページガイドブック。</span><br>
+        <br>
+        世の中に旅の口コミサイト・ガイドブックは数あれど、<br class="pc">
+        大半がメジャーどころ・一般受けするスポットに紐づいたものばかり…<br>
+        だが旅の醍醐味はそればかりじゃない！<br>
+        他の人にとっては路傍の石でも、あなたが楽しいと思ってお出かけしたなら、<br class="pc">
+        そこは立派な旅のメインスポットです。<br>
+        <br>
+        「旅の指南書」は、ニッチな場所でも王道でも、地味でも映えでも関係なく、<br class="pc">
+        誰でも手軽に自分の推したいスポットに焦点をあてて<br class="pc">
+        旅のガイドブック化することができるアプリケーションです。<br>
+      </p>
+    </div><!--/introduction-->
+    <p class="go_guide_index top_btn"><%= link_to I18n.t('views.messages.go_guide_index'), guides_path %></p>
+    <div class="btn_block">
+      <div class="flex normal">
+        <p class="new_registration top_btn item"><%= link_to I18n.t('views.messages.new_registration'), new_user_registration_path %></p>
+        <p class="login top_btn item"><%= link_to I18n.t('views.messages.login'), new_user_session_path %></p>
+      </div>
+      <div class="guest">
+        <p class="guest_sign_in top_btn item"><%= link_to I18n.t('views.messages.guest_sign_in'), users_guest_sign_in_path, method: :post %></p>
+        <p class="admin_guest_sign_in top_btn item"><%= link_to I18n.t('views.messages.admin_guest_sign_in'), users_admin_guest_sign_in_path, method: :post %></p>
+      </div>
+    </div>
+  </div><!--/container-->
+  <footer>
+    <% date = Time.new %>
+    <p class="copyright"><small>&#174; <%= date.year.to_s %> <%= I18n.t('views.messages.app_name') %> All Rights Reserved.</small></p>
+  </footer>
+</article>
