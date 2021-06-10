@@ -17,10 +17,14 @@
 
   <body class="<%= controller.controller_name %>_<%= controller.action_name %>">
     <% if controller.controller_name != "tops" %>
-      <header>
+      <header class="fixed_header">
         <div class="container">
           <div class="flex">
-            <h1 class="logofont item"><%= image_tag 'logo_horizontal.png', size: '400xauto', alt: I18n.t('views.messages.app_name') %></h1>
+            <h1 class="logofont item">
+              <%= link_to guides_path do %>
+                <%= image_tag 'logo_horizontal.png', alt: I18n.t('views.messages.app_name') %>
+              <% end %>
+            </h1>
             <div class="btns item">
               <% if user_signed_in? %>
                 <% if admin? %>
@@ -49,10 +53,10 @@
         <%= yield %>
       </div>
 
-      <footer>
+      <footer class="fixed_footer">
         <div class="container">
           <% date = Time.new %>
-          <p class="copyright"><small>&#174; <%= date.year.to_s %> I18n.t('views.messages.app_name') All Rights Reserved.</small></p>
+          <p class="copyright"><small>&#174; <%= date.year.to_s %> <%= I18n.t('views.messages.app_name') %> All Rights Reserved.</small></p>
         </div>
       </footer>
     <% else %>

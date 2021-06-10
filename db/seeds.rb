@@ -69,11 +69,11 @@ User.create!(name: name,
 end
 
 6.times do |n|
-  title = Faker::Games::Pokemon.move
+  title = "旅のタイトルテキストテキストテキスト"
   content = "# ここに本文テキストが入ります。\r\n\r\n## 見出しテスト\r\n\r\n### 見出しテスト\r\n\r\n> 引用テスト\r\n> 引用テスト\r\n> 引用テスト\r\n\r\n- リスト\r\n- リスト\r\n- リスト\r\n\r\n`hogehogefugafuga`\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```\r\n\r\nhttps://www.google.com/"
   prefecture = n + 1
-  address = Faker::Address.full_address
-  note = "# ここに備考テキストが入ります。\r\n\r\n## 見出しテスト\r\n\r\n### 見出しテスト\r\n\r\n> 引用テスト\r\n> 引用テスト\r\n> 引用テスト\r\n\r\n- リスト\r\n- リスト\r\n- リスト\r\n\r\n`hogehogefugafuga`\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```\r\n\r\nhttps://www.google.com/"
+  address = "◯◯市◯◯◯町◯◯丁目◯◯番◯◯号"
+  note = "### 所在地備考をマークダウン形式で記入できます\r\n\r\n- リスト\r\n- リスト\r\n- リスト\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```"
   user_id = 1
   Guide.create!(title: title,
                content: content,
@@ -85,11 +85,11 @@ end
 end
 
 6.times do |n|
-  title = Faker::Games::Pokemon.move
+  title = "旅のタイトルテキストテキストテキスト"
   content = "# ここに本文テキストが入ります。\r\n\r\n## 見出しテスト\r\n\r\n### 見出しテスト\r\n\r\n> 引用テスト\r\n> 引用テスト\r\n> 引用テスト\r\n\r\n- リスト\r\n- リスト\r\n- リスト\r\n\r\n`hogehogefugafuga`\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```\r\n\r\nhttps://www.google.com/"
   prefecture = n + 7
-  address = Faker::Address.full_address
-  note = "# ここに備考テキストが入ります。\r\n\r\n## 見出しテスト\r\n\r\n### 見出しテスト\r\n\r\n> 引用テスト\r\n> 引用テスト\r\n> 引用テスト\r\n\r\n- リスト\r\n- リスト\r\n- リスト\r\n\r\n`hogehogefugafuga`\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```\r\n\r\nhttps://www.google.com/"
+  address = "◯◯市◯◯◯町◯◯丁目◯◯番◯◯号"
+  note = "### 所在地備考をマークダウン形式で記入できます\r\n\r\n- リスト\r\n- リスト\r\n- リスト\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```"
   user_id = 2
   Guide.create!(title: title,
                content: content,
@@ -101,11 +101,11 @@ end
 end
 
 14.times do |n|
-  title = Faker::Games::Pokemon.move
+  title = "旅のタイトルテキストテキストテキスト"
   content = "# ここに本文テキストが入ります。\r\n\r\n## 見出しテスト\r\n\r\n### 見出しテスト\r\n\r\n> 引用テスト\r\n> 引用テスト\r\n> 引用テスト\r\n\r\n- リスト\r\n- リスト\r\n- リスト\r\n\r\n`hogehogefugafuga`\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```\r\n\r\nhttps://www.google.com/"
   prefecture = n + 13
-  address = Faker::Address.full_address
-  note = "# ここに備考テキストが入ります。\r\n\r\n## 見出しテスト\r\n\r\n### 見出しテスト\r\n\r\n> 引用テスト\r\n> 引用テスト\r\n> 引用テスト\r\n\r\n- リスト\r\n- リスト\r\n- リスト\r\n\r\n`hogehogefugafuga`\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```\r\n\r\nhttps://www.google.com/"
+  address = "◯◯市◯◯◯町◯◯丁目◯◯番◯◯号"
+  note = "### 所在地備考をマークダウン形式で記入できます\r\n\r\n- リスト\r\n- リスト\r\n- リスト\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```"
   user_id = n + 3
   Guide.create!(title: title,
                content: content,

@@ -11,10 +11,10 @@ class GuidesController < ApplicationController
       elsif params[:search_prefecture].present?
         @guides = Guide.search_prefecture(params[:search_prefecture]).page(params[:page]).per(5)
       else
-        @guides = Guide.order(created_at: :desc).page(params[:page]).per(5)
+        @guides = Guide.order(updated_at: :desc).page(params[:page]).per(5)
       end
     else
-      @guides = Guide.order(created_at: :desc).page(params[:page]).per(5)
+      @guides = Guide.order(updated_at: :desc).page(params[:page]).per(5)
     end
   end
 
@@ -50,7 +50,7 @@ class GuidesController < ApplicationController
 
   def update
     if @guide.update(guide_edit_params)
-      redirect_to guides_path, notice: I18n.t('views.messages.update_guide')
+      redirect_to guide_path(@guide.id), notice: I18n.t('views.messages.update_guide')
     else
       render :edit
     end

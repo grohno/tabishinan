@@ -720,6 +720,7 @@
 
 .markdown-body li {
   word-wrap: break-all;
+  list-style: disc;
 }
 
 .markdown-body li>p {
@@ -982,4 +983,8 @@
 .markdown-body .task-list-item input {
   margin: 0 .2em .25em -1.6em;
   vertical-align: middle;
+}
+
+.markdown-body h2::after {
+  border-bottom: none;
 }

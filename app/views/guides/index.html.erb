@@ -1,40 +1,51 @@
-<div class="search_box" >
-  <%= form_with(local: true, method: :get, url: guides_path ) do |form| %>
-    <%= form.label :search_title, I18n.t('views.messages.search_title') %>
-    <%= form.text_field :search_title, placeholder: I18n.t('views.messages.search_by_title') %>
-    <%= form.label :search_prefecture, I18n.t('views.messages.search_prefectures') %>
-    <%= form.select :search_prefecture, Guide.prefectures.keys, { include_blank: I18n.t('views.messages.please_selected') } %>
-    <%= form.submit I18n.t('views.messages.search'), name: "search" %>
+<article>
+
+  <% if user_signed_in? %>
+    <p class="create_new_guide"><%= link_to I18n.t('views.messages.new_guide'), new_guide_path %></p>
   <% end %>
-</div>
 
-<% if user_signed_in? %>
-  <p><%= link_to I18n.t('views.messages.new_guide'), new_guide_path %></p>
-<% end %>
+  <div class="search_box" >
+    <%= form_with(local: true, method: :get, url: guides_path ) do |form| %>
+      <span>
+        <%= form.label :search_title, I18n.t('views.messages.search_title') %>
+        <%= form.text_field :search_title, placeholder: I18n.t('views.messages.search_by_title') %>
+      </span>
+      <span>
+        <%= form.label :search_prefecture, I18n.t('views.messages.search_prefectures') %>
+        <%= form.select :search_prefecture, Guide.prefectures.keys, { include_blank: I18n.t('views.messages.please_selected') } %>
+      </span>
+      <span class="submit">
+        <%= form.submit I18n.t('views.messages.search'), name: "search" %>
+      </span>
+    <% end %>
+  </div>
 
-<ul>
-<% @guides.each do |guide| %>
-  <li class="flex">
-    <p class="img item">
-      <% main_flag_picture = guide.pictures.find { |picture| picture[:main_flag] == true} %>
-      <% if main_flag_picture[:image] != nil %>
-        <%= image_tag main_flag_picture.image.url %>
-      <% else %>
-        まだメイン画像が登録されていません
-      <% end %>
-    </p>
-    <div class="left item">
-      <p class="title"><%= guide.title %></p>
-      <p class="data_group">
-        <span class="name">ユーザー名:<%= guide.user.name %></span>
-        <span class="prefecture">都道府県:<%= guide.prefecture %></span>
-        <span class="favorite_count">お気に入り数:<%= guide.favorites.count %></span>
+  <h2>旅ガイドページ一覧</h2>
+  <ul>
+  <% @guides.each do |guide| %>
+    <li class="flex">
+      <p class="img item">
+        <% main_flag_picture = guide.pictures.find { |picture| picture[:main_flag] == true} %>
+        <% if main_flag_picture[:image] != nil %>
+          <%= image_tag main_flag_picture.image.url %>
+        <% else %>
+          まだメイン画像が登録されていません
+        <% end %>
       </p>
-      <p class="show_btn"><%= link_to I18n.t('views.messages.show'), guide_path(guide.id) %></p>
-    </div>
-  </li>
-<% end %>
-</ul>
-<div class="pagination_block">
-  <%= paginate @guides %>
-</div>
+      <div class="left item">
+        <p class="title"><%= guide.title %></p>
+        <p class="data_group">
+          <span class="name">ユーザー名:<%= guide.user.name %></span>
+          <span class="prefecture">都道府県:<%= guide.prefecture %></span>
+          <span class="favorite_count">お気に入り数:<%= guide.favorites.count %></span>
+        </p>
+        <p class="show_btn"><%= link_to I18n.t('views.messages.show'), guide_path(guide.id) %></p>
+      </div>
+    </li>
+  <% end %>
+  </ul>
+  <div class="pagination_block">
+    <%= paginate @guides %>
+  </div>
+
+</article>
