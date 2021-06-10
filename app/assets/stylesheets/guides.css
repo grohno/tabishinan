@@ -2,7 +2,6 @@
   text-align: center;
   margin-bottom: 40px;
 }
-
 .guides_index .create_new_guide a {
   color: #000;
   background-color: #fff100;
@@ -33,7 +32,6 @@
   background: #fff20a;
   border-bottom: 2px solid #ccc100;
 }
-
 .guides_index .search_box {
   padding: 20px 10px;
   border: solid 4px #f3f5f6;
@@ -47,14 +45,12 @@
 .guides_index .search_box form label {
   font-weight: bold;
 }
-
 .guides_index .search_box form span {
   margin-right: 20px;
 }
 .guides_index .search_box form span:last-child {
   margin-right: 0;
 }
-
 .guides_index ul li {
   align-items: center;
   padding-bottom: 20px;
@@ -156,7 +152,6 @@
     width: 400px;
   }
 }
-
 @media only screen and (max-width: 768px){
   .guides_index .search_box input[type="text"],
   .guides_index .search_box select {
@@ -299,7 +294,6 @@
   color: #fff;
   line-height: 1;
 }
-
 @media only screen and (max-width: 768px){
   .guides_show .upper .left,
   .guides_show .upper .right {
@@ -308,4 +302,115 @@
   .guides_show .upper .left {
     margin-bottom: 20px;
   }
+}
+.guides_post_form table th,
+.guides_post_form table td {
+  padding: 20px 10px;
+}
+.guides_post_form table tr {
+  border-bottom: 1px solid #ccc;
+}
+.guides_post_form table th {
+  vertical-align: top;
+}
+.guides_post_form table th,
+.guides_post_form table th label {
+  width: 8em;
+  font-weight: bold;
+}
+.guides_post_form table td input[type="text"],
+.guides_post_form table td textarea {
+  width: 100%;
+  display: block;
+}
+.guides_post_form table td select {
+  display: block;
+}
+.guides_post_form table td textarea {
+  height: 200px;
+}
+.guides_post_form table td .field {
+  margin-bottom: 20px;
+}
+.guides_post_form table td .field:last-child {
+  margin-bottom: 0;
+}
+.guides_post_form table td label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.guides_post_form table td .pictures {
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.guides_post_form table td .pictures span {
+  padding: 5px;
+  position: relative;
+}
+.guides_post_form table td .pictures span::before {
+  content: "Preview";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-weight: bold;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  line-height: 1;
+  padding: 3px 5px;
+}
+.guides_post_form table td .pictures span.picture0::before {
+  content: "Preview メイン画像";
+}
+.guides_post_form table td .pictures span.picture1::before {
+  content: "Preview 2";
+}
+.guides_post_form table td .pictures span.picture2::before {
+  content: "Preview 3";
+}
+.guides_post_form table td .pictures span.picture3::before {
+  content: "Preview 4";
+}
+.guides_post_form table td .pictures span.picture4::before {
+  content: "Preview 5";
+}
+.guides_post_form table td .pictures span img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+}
+.guides_post_form table td .pictures_form .picture {
+  margin-bottom: 10px;
+}
+.guides_post_form table td .pictures_form .picture:last-child {
+  margin-bottom: 0;
+}
+.guides_post_form table td .pictures_form .picture .image_flag {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.guides_post_form .actions {
+  margin-top: 40px;
+  text-align: center;
+}
+@media only screen and (max-width: 768px){
+
+.guides_post_form table tr,
+.guides_post_form table th,
+.guides_post_form table td {
+  display: block;
+  padding: 10px 0;
+}
+.guides_post_form table th {
+  padding: 0;
+}
+.guides_post_form table td .pictures span img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+}
+
+
 }
