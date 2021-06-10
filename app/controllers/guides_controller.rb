@@ -64,11 +64,11 @@ class GuidesController < ApplicationController
   private
 
   def guide_params
-    params.require(:guide).permit(:title, :content, :prefecture, :address, :note, :user_id, pictures_attributes: [:id, :image, :main_flag])
+    params.require(:guide).permit(:title, :content, :prefecture, :address, :note, :user_id, pictures_attributes: [:id, :image, :order_number])
   end
 
   def guide_edit_params
-    params.require(:guide).permit(:title, :content, :prefecture, :address, :note, :user_id, pictures_attributes: [:id, :image, :image_cache, :main_flag])
+    params.require(:guide).permit(:title, :content, :prefecture, :address, :note, :user_id, pictures_attributes: [:id, :image, :image_cache, :order_number])
   end
 
   def set_guide

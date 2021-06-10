@@ -5,11 +5,11 @@
   <div class="flex upper">
     <div class="item left">
       <p class="main_image img">
-        <% main_flag_picture = @guide.pictures.find { |picture| picture[:main_flag] == true} %>
-        <% if main_flag_picture[:image] != nil %>
-          <%= link_to image_tag(main_flag_picture.image.url), main_flag_picture.image.url, data: { lightbox: "main_image" } %>
+        <% main_picture = @guide.pictures.find { |picture| picture[:order_number] == 0} %>
+        <% if main_picture[:image] != nil %>
+          <%= link_to image_tag(main_picture.image.url), main_picture.image.url, data: { lightbox: "main_image" } %>
         <% else %>
-          まだメイン画像が登録されていません
+          <%= image_tag 'no_image.jpg' %>
         <% end %>
       </p>
       <div class="sns_share">
@@ -52,11 +52,11 @@
     <%= markdown(@guide.content) %>
   </div>
   <div class="pictures flex">
-    <% @guide.pictures.each_with_index do |picture, i| %>
+    <% @guide.pictures.order(order_number: :asc).each_with_index do |picture, i| %>
       <% if picture[:image] != nil %>
         <span class="picture<%= i %>"><%= link_to image_tag(picture.image.url), picture.image.url, data: { lightbox: "pictures" } %></span>
       <% else %>
-        <span class="picture<%= i %>">まだ登録されていません</span>
+        <span class="picture<%= i %> no_image"><%= image_tag 'no_image.jpg' %></span>
       <% end %>
     <% end %>
   </div>

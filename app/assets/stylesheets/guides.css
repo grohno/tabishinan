@@ -294,6 +294,9 @@
   color: #fff;
   line-height: 1;
 }
+.guides_show .pictures span.no_image::before {
+  content: none;
+}
 @media only screen and (max-width: 768px){
   .guides_show .upper .left,
   .guides_show .upper .right {
@@ -302,6 +305,9 @@
   .guides_show .upper .left {
     margin-bottom: 20px;
   }
+}
+.guides_post_form table {
+  width: 100%;
 }
 .guides_post_form table th,
 .guides_post_form table td {

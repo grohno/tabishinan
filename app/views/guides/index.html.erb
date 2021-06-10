@@ -25,11 +25,11 @@
   <% @guides.each do |guide| %>
     <li class="flex">
       <p class="img item">
-        <% main_flag_picture = guide.pictures.find { |picture| picture[:main_flag] == true} %>
-        <% if main_flag_picture[:image] != nil %>
-          <%= image_tag main_flag_picture.image.url %>
+        <% main_picture = guide.pictures.find { |picture| picture[:order_number] == 0} %>
+        <% if main_picture[:image] != nil %>
+          <%= image_tag main_picture.image.url %>
         <% else %>
-          まだメイン画像が登録されていません
+          <%= image_tag 'no_image.jpg' %>
         <% end %>
       </p>
       <div class="left item">

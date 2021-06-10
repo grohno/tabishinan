@@ -61,10 +61,11 @@
 <% @guides.each do |guide| %>
   <li class="flex">
     <p class="img item">
-      <% guide.pictures.each do |picture| %>
-        <% if picture.main_flag %>
-          <%= image_tag picture.image.url %>
-        <% end %>
+      <% main_picture = guide.pictures.find { |picture| picture[:order_number] == 0} %>
+      <% if main_picture[:image] != nil %>
+        <%= image_tag main_picture.image.url %>
+      <% else %>
+        <%= image_tag 'no_image.jpg' %>
       <% end %>
     </p>
     <div class="left item">

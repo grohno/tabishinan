@@ -121,7 +121,7 @@ end
   image_num = n
   Picture.create!(guide_id: guide_id,
                image: open("#{Rails.root}/db/main_flags/main_flag_image_#{image_num}.jpg"),
-               main_flag: true
+               order_number: 0
               )
 end
 
@@ -130,7 +130,7 @@ end
   image_num = n
   Picture.create!(guide_id: guide_id,
                image: open("#{Rails.root}/db/pictures/test_image_#{image_num}.jpg"),
-               main_flag: false
+               order_number: 1
               )
 end
 
@@ -139,7 +139,7 @@ end
   image_num = n + 25
   Picture.create!(guide_id: guide_id,
                image: open("#{Rails.root}/db/pictures/test_image_#{image_num}.jpg"),
-               main_flag: false
+               order_number: 2
               )
 end
 
@@ -148,7 +148,7 @@ end
   image_num = n + 7
   Picture.create!(guide_id: guide_id,
                image: open("#{Rails.root}/db/pictures/test_image_#{image_num}.jpg"),
-               main_flag: false
+               order_number: 3
               )
 end
 
@@ -157,7 +157,7 @@ end
   image_num = n + 17
   Picture.create!(guide_id: guide_id,
                image: open("#{Rails.root}/db/pictures/test_image_#{image_num}.jpg"),
-               main_flag: false
+               order_number: 4
               )
 end
 
