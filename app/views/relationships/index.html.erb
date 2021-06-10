@@ -1,30 +1,37 @@
+<article>
 <h2>フォローしたユーザー一覧</h2>
 
-<ul>
-<% if @followers.size != 0 %>
-  <% @followers.each do |follower| %>
-    <li>
-      <p class="img">
-        <% if follower.image.url != nil %>
-        <%= image_tag follower.image.url %>
-        <% else %>
-        まだ登録はありません
-        <% end %>
-      </p>
-      <p class="name">
-        <%= follower.name %>さん
-      </p>
-      <p class="show_btn"><%= link_to I18n.t('views.messages.show'), user_path(follower.id) %></p>
-    </li>
+<div class="user_list">
+  <ul>
+  <% if @followers.size != 0 %>
+    <% @followers.each do |follower| %>
+      <li>
+        <p class="img">
+          <% if follower.image.url != nil %>
+          <%= image_tag follower.image.url %>
+          <% else %>
+          <%= image_tag 'no_image.jpg' %>
+          <% end %>
+        </p>
+        <p class="name">
+          <%= follower.name %>さん
+        </p>
+        <p class="btn_group"><%= link_to I18n.t('views.messages.show'), user_path(follower.id), class: "show_user" %></p>
+      </li>
+    <% end %>
+  <% else %>
+    <li><p>フォローしているユーザーはまだいません。</p></li>
   <% end %>
-<% else %>
-  <li><p>フォローしているユーザーはまだいません。</p></li>
-<% end %>
-</ul>
+  </ul>
+</div>
 
 <div class="pagination_block">
   <%= paginate @followers %>
 </div>
 
-<%= link_to I18n.t('views.messages.back_index'), guides_path %>
-<%= link_to I18n.t('views.messages.back_usershow'), user_path(current_user.id) %>
+<div class="lower_nav">
+  <%= link_to I18n.t('views.messages.back_index'), guides_path %>
+  <%= link_to I18n.t('views.messages.back_usershow'), user_path(current_user.id) %>
+</div>
+
+</article>

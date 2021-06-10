@@ -4,7 +4,7 @@ class Admin::UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @users = User.select(:id, :name, :image).order(created_at: :asc).page(params[:page]).per(5)
+    @users = User.select(:id, :name, :image).order(created_at: :asc).page(params[:page]).per(12)
   end
 
   def new
@@ -14,6 +14,7 @@ class Admin::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      redirect_to admin_users_path, notice: I18n.t('views.messages.create_user')
     else
       render :new
     end

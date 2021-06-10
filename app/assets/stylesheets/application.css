@@ -12,6 +12,199 @@
  *
  *= require bootstrap/dist/css/bootstrap.min
  *= require_directory ./layout
+*= require_directory ./github-markdown
+*= require_directory ./vendor
  *= require_tree .
  *= require_self
  */
+
+ /* header */
+
+.fixed_header {
+  background: #fff;
+  border-top: 3px solid #b89e11;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+.fixed_header h1 {
+  margin: 0;
+}
+.fixed_header h1 img {
+  width: auto;
+  height: 60px;
+  -webkit-transition: all .5s;
+	transition: all .5s;
+}
+.fixed_header .flex {
+  align-items: center;
+}
+.fixed {
+  background: rgba(230, 230, 230, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  -webkit-transition: all .5s;
+	transition: all .5s;
+}
+.fixed_header.fixed h1 img {
+  width: auto;
+  height: 40px;
+  -webkit-transition: all .5s;
+	transition: all .5s;
+}
+.fixed_header .btns a {
+  margin-right: 10px;
+}
+.fixed_header .btns a:hover {
+  text-decoration: none;
+  color: #0357ab;
+}
+.fixed_header .btns a:before {
+  content:'chevron_right';
+	font-family: "Material Icons";
+  color: #0357ab;
+  font-size: 1.8rem;
+  vertical-align: middle;
+}
+
+@media only screen and (max-width: 768px){
+  .fixed_header h1 img {
+    width: auto;
+    height: 40px;
+  }
+}
+
+/* sign_in sign_up */
+
+.registrations_new,
+.sessions_new {
+  background-image:url("/assets/top_index_bg_img_1.png");
+}
+.login_form_block {
+  max-width: 600px;
+  margin: 40px auto;
+  border-radius: 20px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.5);
+}
+.login_form_block .field {
+  margin-bottom: 15px;
+}
+.login_form_block label {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.login_form_block input[type="text"],
+.login_form_block input[type="password"],
+.login_form_block input[type="email"] {
+  width: 100%;
+}
+.login_form_block .check_box label {
+  margin-bottom: 0;
+  vertical-align: middle;
+}
+.login_form_block .check_box input[type="checkbox"] {
+  margin: 0;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.login_form_block .actions {
+  text-align: center;
+}
+.login_form_block .lower {
+  text-align: center;
+  margin-top: 30px;
+}
+.login_form_block .lower a:hover {
+  text-decoration: none;
+  color: #0357ab;
+}
+.login_form_block .lower a:before {
+  content:'chevron_right';
+	font-family: "Material Icons";
+  color: #0357ab;
+  font-size: 1.8rem;
+  vertical-align: middle;
+}
+
+@media only screen and (max-width: 768px){
+  .login_form_block {
+    padding: 20px 10px;
+  }
+}
+
+
+/* pagination */
+
+.pagination_block {
+  text-align: center;
+  margin-top: 30px;
+}
+.pagination_block .pagination span {
+  margin: 0 2px;
+  color: #5c8fb6;
+}
+.pagination_block .pagination span.page {
+  padding: 5px 10px;
+  margin-left: 5px;
+  border: 1px solid #5c8fb6;
+  background:  #5c8fb6;
+  color: #fff;
+  line-height: 1;
+  border-radius: 100px;
+}
+.pagination_block .pagination span.page.current {
+  background:  #fff;
+  color: #81d0cb;
+}
+.pagination_block .pagination span.page a {
+  color: #fff;
+}
+.pagination_block .pagination span.page a:hover {
+  text-decoration: none;
+}
+
+/* lower_nav */
+
+.lower_nav {
+  position: fixed;
+  bottom: 100px;
+  right: 50px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+.lower_nav a {
+  display: block;
+  color: #fff;
+  font-weight: bold;
+}
+.lower_nav a:hover {
+  text-decoration: none;
+}
+.lower_nav a::before {
+  content: 'chevron_right';
+  font-family: "Material Icons";
+  color: #fff;
+  font-size: 1.8rem;
+  vertical-align: middle;
+}
+
+@media only screen and (max-width: 768px){
+  .lower_nav {
+    bottom: 20px;
+    right: 10px;
+  }
+}
+
+/* footer */
+
+.fixed_footer {
+  padding: 10px 0;
+}
+.fixed_footer .container {
+  text-align: center;
+}

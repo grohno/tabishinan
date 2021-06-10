@@ -1,0 +1,123 @@
+.users_show .user_data {
+  margin-bottom: 30px;
+  border: 2px dashed #c3d825;
+  padding: 20px;
+}
+
+.users_show .user_data .left {
+  width: 24%;
+}
+.users_show .user_data .right {
+  width: 74%;
+}
+.users_show .user_data .left .img img {
+  border-radius: 20px;
+  max-width: 300px;
+  height: 200px;
+  object-fit: cover;
+}
+.users_show .user_data .right table {
+  width: 100%;
+}
+
+.users_show .user_data .right table tr {
+  border-bottom: 1px solid #ccc;
+}
+.users_show .user_data .right table th,
+.users_show .user_data .right table td {
+  padding: 10px;
+}
+.users_show .user_data .right table th {
+  width: 12em;
+  font-weight: bold;
+}
+.users_show .user_data .right table td .name,
+.users_show .user_data .right table td .follow_form {
+  display: inline-block;
+  vertical-align: middle;
+}
+.users_show .user_data .right table td .name {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #694a38;
+}
+.users_show .user_data .right table td .follow_form {
+  margin-left: 20px;
+}
+.users_show .user_data .right table td .follow_form input[type="submit"] {
+  font-size: 1.4rem;
+  line-height: 1.2;
+  padding: 0.5rem 2rem;
+  background-color: #fff100;
+  border-bottom: 5px solid #ccc100;
+  color: #694a38;
+}
+.users_show .user_data .right table td .link_block {
+  display: inline-block;
+  margin-left: 20px;
+}
+.users_show .user_data .right table td .link_block a:hover {
+  text-decoration: none;
+}
+.users_show .user_data .right table td .link_block .edit_user::before {
+  content: 'edit';
+  font-family: "Material Icons";
+  color: #888;
+  font-size: 2.6rem;
+  line-height: 1;
+  vertical-align: middle;
+}
+.users_show .user_data .right table td .link_block .delete_user::before {
+  content: 'delete';
+  font-family: "Material Icons";
+  color: #888;
+  font-size: 2.6rem;
+  line-height: 1;
+  vertical-align: middle;
+}
+.users_show .user_data .right table td .favorite_count,
+.users_show .user_data .right table td .follower_count {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #694a38;
+  margin-right: 20px;
+}
+.users_show .user_data .right table td .goto_show:hover {
+  text-decoration: none;
+}
+.users_show .user_data .right table td .goto_show::before {
+  content: 'find_in_page';
+  font-family: "Material Icons";
+  color: #888;
+  font-size: 2.6rem;
+  line-height: 1;
+  vertical-align: middle;
+}
+@media only screen and (max-width: 1200px){
+  .users_show .user_data {
+    flex-wrap: wrap;
+  }
+  .users_show .user_data .item {
+    width: 100%;
+  }
+  .users_show .user_data .right {
+    margin-top: 20px;
+  }
+}
+@media only screen and (max-width: 768px){
+  .users_show .user_data .right table th,
+  .users_show .user_data .right table td {
+    display: block;
+    width: 100%;
+  }
+  .users_show .user_data .right table th {
+    font-size: 1.6rem;
+  }
+}
+
+.users_post_form .image img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}

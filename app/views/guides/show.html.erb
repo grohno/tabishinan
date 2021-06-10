@@ -1,61 +1,72 @@
-<h2>旅ガイドページ詳細</h2>
-<div class="flex upper">
-  <div class="item left">
-    <p class="main_image img">
-      <% main_flag_picture = @guide.pictures.find { |picture| picture[:main_flag] == true} %>
-      <% if main_flag_picture[:image] != nil %>
-        <%= image_tag main_flag_picture.image.url %>
-      <% else %>
-        まだメイン画像が登録されていません
-      <% end %>
-    </p>
-    <p class="sns_share">
-      <span class="twitter">
-        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-      </span>
-      <span class="facebook">
-        <iframe src="https://www.facebook.com/plugins/share_button.php?href=<%= request.url %>&layout=button&size=small&width=69&height=20&appId" width="69" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-      </span>
-      <span class="line">
-        <div class="line-it-button" style="display: none;" data-lang="ja" data-type="share-a" data-ver="3" data-url="<%= request.url %>" data-color="default" data-size="small" data-count="false"></div>
-  <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
-      </span>
-    </p>
-  </div>
-  <div class="item right">
-    <p class="data_group">
-      <span class="name">ユーザー名:<%= @guide.user.name %></span>
-      <span class="favorite_count">お気に入り数:<%= @guide.favorites.count %></span>
-      <% if user_signed_in? && @guide.user.id != current_user.id %>
-        <% if @favorite.present? %>
-          <%= link_to I18n.t('views.messages.do_favorite_deletion'), favorite_path(id: @favorite.id), method: :delete %>
+<article>
+
+  <h2><%= @guide.title %></h2>
+
+  <div class="flex upper">
+    <div class="item left">
+      <p class="main_image img">
+        <% main_picture = @guide.pictures.find { |picture| picture[:order_number] == 0} %>
+        <% if main_picture[:image] != nil %>
+          <%= link_to image_tag(main_picture.image.url), main_picture.image.url, data: { lightbox: "main_image" } %>
         <% else %>
-          <%= link_to I18n.t('views.messages.do_favorite_register'), favorites_path(guide_id: @guide.id), method: :post %>
+          <%= image_tag 'no_image.jpg' %>
         <% end %>
-      <% end %>
-    </p>
-    <p class="title"><%= @guide.title %></p>
-    <div class="location">
-      <p class="address"><%= @guide.prefecture %> <%= @guide.address %></p>
-      <div class="note"><%= markdown(@guide.note) %></div>
+      </p>
+      <div class="sns_share">
+        <div class="twitter sns_btn">
+          <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+        <div class="facebook sns_btn">
+          <iframe src="https://www.facebook.com/plugins/share_button.php?href=<%= request.url %>&layout=button&size=small&width=69&height=20&appId" width="69" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        </div>
+        <div class="line sns_btn">
+          <div class="line-it-button" style="display: none;" data-lang="ja" data-type="share-a" data-ver="3" data-url="<%= request.url %>" data-color="default" data-size="small" data-count="false"></div>
+    <script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+        </div>
+      </div>
+    </div>
+    <div class="item right">
+      <div class="data_group">
+        <div class="user data">
+          <span class="name">ユーザー名:<%= @guide.user.name %></span>
+          <%= link_to I18n.t('views.messages.show'), user_path(@guide.user.id) %>
+        </div>
+        <div class="favorite data">
+          <span class="favorite_count">お気に入り数:<%= @guide.favorites.count %></span>
+          <% if user_signed_in? && @guide.user.id != current_user.id %>
+            <% if @favorite.present? %>
+              <%= link_to I18n.t('views.messages.do_favorite_deletion'), favorite_path(id: @favorite.id), method: :delete, class: "favorite_deletion" %>
+            <% else %>
+              <%= link_to I18n.t('views.messages.do_favorite_register'), favorites_path(guide_id: @guide.id), method: :post, class: "favorite_register" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="location">
+        <p class="address"><span>所在地:</span><%= @guide.prefecture %> <%= @guide.address %></p>
+        <div class="note markdown-body"><%= markdown(@guide.note) %></div>
+      </div>
     </div>
   </div>
-</div>
-<div class="content">
-  <%= markdown(@guide.content) %>
-</div>
-<div class="pictures">
-  <% @guide.pictures.each_with_index do |picture, i| %>
-    <% if picture[:image] != nil %>
-      <span class="picture<%= i %>"><%= image_tag picture.image.url %></span>
-    <% else %>
-      <span class="picture<%= i %>">まだ登録されていません</span>
+  <div class="content markdown-body">
+    <%= markdown(@guide.content) %>
+  </div>
+  <div class="pictures flex">
+    <% @guide.pictures.order(order_number: :asc).each_with_index do |picture, i| %>
+      <% if picture[:image] != nil %>
+        <span class="picture<%= i %>"><%= link_to image_tag(picture.image.url), picture.image.url, data: { lightbox: "pictures" } %></span>
+      <% else %>
+        <span class="picture<%= i %> no_image"><%= image_tag 'no_image.jpg' %></span>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
 
-<%= link_to I18n.t('views.messages.back_index'), guides_path %>
-<% if user_signed_in? && @guide.user.id == current_user.id %>
-  <%= link_to I18n.t('views.messages.edit'), edit_guide_path(@guide.id), data: { confirm: I18n.t('views.messages.confirm_edit') } %>
-  <%= link_to I18n.t('views.messages.delete'), guide_path(@guide.id), method: :delete ,data: { confirm: I18n.t('views.messages.confirm_delete') } %>
-<% end %>
+  <div class="lower_nav">
+    <%= link_to I18n.t('views.messages.back_index'), guides_path %>
+    <% if user_signed_in? && @guide.user.id == current_user.id %>
+      <%= link_to I18n.t('views.messages.edit'), edit_guide_path(@guide.id), data: { confirm: I18n.t('views.messages.confirm_edit') } %>
+      <%= link_to I18n.t('views.messages.delete'), guide_path(@guide.id), method: :delete ,data: { confirm: I18n.t('views.messages.confirm_delete') } %>
+  <% end %>
+  </div>
+
+</article>

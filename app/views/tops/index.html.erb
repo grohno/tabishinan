@@ -12,6 +12,15 @@
 <header id="header">
   <div id="slider">
     <div class="centerbox">
+      <div class="alert_block">
+        <% if notice %>
+          <p class="alert alert-notice"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p class="alert alert-error"><%= alert %></p>
+        <% end %>
+      </div>
+
       <h1 class="item logo"><%= image_tag 'logo_top.png', size: '400xauto', alt: I18n.t('views.messages.app_name') %></h1>
       <p class="scroll">
         Scroll Down

@@ -9,7 +9,8 @@ Twitter: @rich_clark
 */
 
 html, body, div, span, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+/* h1, h2, h3, h4, h5, h6, p, blockquote, pre, */
+p, blockquote, pre,
 abbr, address, cite, code,
 del, dfn, em, img, ins, kbd, q, samp,
 small, strong, sub, sup, var,
@@ -192,6 +193,51 @@ textarea:focus {
 }
 .label_block .label {
   padding: 0.3em 0.6em;
+}
+h2 {
+  border-bottom: solid 3px #cce4ff;
+  position: relative;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+h2:after {
+  position: absolute;
+  content: " ";
+  display: block;
+  border-bottom: solid 3px #5472cd;
+  bottom: -3px;
+  width: 20%;
+}
+input[type="submit"] {
+  border: none;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+  color: #fff;
+  background-color: #0357ab;
+  border-bottom: 5px solid #013467;
+  border-radius: 100vh;
+  outline: none;
+}
+input[type="submit"]:hover {
+  margin-top: 3px;
+  border-bottom: 2px solid #013467;
 }
 
 @media only screen and (min-width: 769px){

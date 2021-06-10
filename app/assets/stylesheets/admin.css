@@ -1,0 +1,78 @@
+.user_list ul {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.user_list ul li {
+  width: 320px;
+  border: 2px dashed #c3d825;
+  padding: 20px;
+  margin: 0 10px 20px;
+}
+.user_list ul li .img {
+  margin-bottom: 10px;
+}
+.user_list ul li .img img {
+  max-width: 300px;
+  height: 200px;
+  border-radius: 20px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+.user_list ul li .name {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #694a38;
+  vertical-align: middle;
+}
+.user_list ul li .name .admin {
+  display: inline-block;
+  background: #e9546b;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin-left: 20px;
+  line-height: 1;
+  vertical-align: text-bottom;
+}
+.user_list ul li .btn_group a {
+  display: block;
+  margin-bottom: 5px;
+}
+.user_list ul li .btn_group a:hover {
+  text-decoration: none;
+}
+.user_list ul li .btn_group .show_user::before {
+  content: 'find_in_page';
+  font-family: "Material Icons";
+  color: #888;
+  font-size: 2.6rem;
+  line-height: 1;
+  vertical-align: middle;
+}
+.user_list ul li .btn_group .show_user::before {
+  content: 'find_in_page';
+  font-family: "Material Icons";
+  color: #888;
+  font-size: 2.6rem;
+  line-height: 1;
+  vertical-align: middle;
+}
+.user_list ul li .btn_group .edit_user::before {
+  content: 'edit';
+  font-family: "Material Icons";
+  color: #888;
+  font-size: 2.6rem;
+  line-height: 1;
+  vertical-align: middle;
+}
+.user_list ul li .btn_group .delete_user::before {
+  content: 'delete';
+  font-family: "Material Icons";
+  color: #888;
+  font-size: 2.6rem;
+  line-height: 1;
+  vertical-align: middle;
+}

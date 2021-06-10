@@ -1,83 +1,100 @@
-<h2><%= @user.name %>さんのページ</h2>
-<div class="user_data flex">
-  <div class="item left">
-    <p class="img">
-      <% if @user.image.url != nil %>
-      <%= image_tag @user.image.url %>
-      <% else %>
-      まだ登録されていません
-      <% end %>
-    </p>
-  </div>
-  <div class="item right">
-    <table>
-      <tr>
-        <th>ユーザー名</th>
-        <td>
-          <span class="name"><%= @user.name %></span>
-          <%= render 'follow_form', user: @user %>
-        </td>
-      </tr>
-      <tr>
-        <th>自己紹介</th>
-        <td>
-          <% if @user.self_introduction != nil %>
-            <%= markdown(@user.self_introduction) %>
-          <% end %>
-        </td>
-      </tr>
-      <% if @user.id == current_user.id %>
-      <tr>
-        <th>メールアドレス</th>
-        <td><%= @user.email %></td>
-      </tr>
-      <tr>
-        <th>お気に入りページ</th>
-        <td>
-          <span class="favorite_count"><%= @user.favorites.count %>件</span>
-          <%= link_to I18n.t('views.messages.go_favorites_index'), favorites_path %>
-        </td>
-      </tr>
-      <tr>
-        <th>フォローしたユーザー</th>
-        <td>
-          <span class="follower_count"><%= @user.following.count %>件</span>
-          <%= link_to I18n.t('views.messages.go_following_index'), relationships_path %>
-        </td>
-      </tr>
-      <% end %>
-      </table>
+<article>
 
-    <% if @user.id == current_user.id %>
-      <%= link_to I18n.t('views.messages.edit_user'), edit_user_path(@user.id), data: { confirm: I18n.t('views.messages.confirm_edit') } %>
-      <%= link_to I18n.t('views.messages.delete_user'), user_path(@user.id), method: :delete ,data: { confirm: I18n.t('views.messages.confirm_delete') } %>
-    <% end %>
-  </div>
-</div>
-
-<ul>
-<% @guides.each do |guide| %>
-  <li class="flex">
-    <p class="img item">
-      <% guide.pictures.each do |picture| %>
-        <% if picture.main_flag %>
-          <%= image_tag picture.image.url %>
+  <h2><%= @user.name %>さんのページ</h2>
+  <div class="user_data flex">
+    <div class="item left">
+      <p class="img">
+        <% if @user.image.url != nil %>
+          <%= image_tag @user.image.url %>
+        <% else %>
+          <%= image_tag 'no_image.jpg' %>
         <% end %>
-      <% end %>
-    </p>
-    <div class="left item">
-      <p class="title"><%= guide.title %></p>
-      <p class="data_group">
-        <span class="name">ユーザー名:<%= guide.user.name %></span>
-        <span class="prefecture">都道府県:<%= guide.prefecture %></span>
       </p>
-      <p class="show_btn"><%= link_to I18n.t('views.messages.show'), guide_path(guide.id) %></p>
     </div>
-  </li>
-<% end %>
-</ul>
-<div class="pagination_block">
-  <%= paginate @guides %>
-</div>
+    <div class="item right">
+      <table>
+        <tr>
+          <th>ユーザー名</th>
+          <td>
+            <span class="name"><%= @user.name %></span>
+            <% if @user.id != current_user.id %>
+              <%= render 'follow_form', user: @user %>
+            <% end %>
+            <% if @user.id == current_user.id %>
+              <div class="link_block">
+                <%= link_to I18n.t('views.messages.edit_user'), edit_user_path(@user.id), data: { confirm: I18n.t('views.messages.confirm_edit') }, class: "edit_user" %>
+                <%= link_to I18n.t('views.messages.delete_user'), user_path(@user.id), method: :delete ,data: { confirm: I18n.t('views.messages.confirm_delete') }, class: "delete_user" %>
+              </div>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>自己紹介</th>
+          <td>
+            <% if @user.self_introduction != nil %>
+            <div class="markdown-body">
+              <%= markdown(@user.self_introduction) %>
+            <% end %>
+            </div>
+          </td>
+        </tr>
+        <% if @user.id == current_user.id %>
+        <tr>
+          <th>メールアドレス</th>
+          <td><%= @user.email %></td>
+        </tr>
+        <tr>
+          <th>お気に入りページ</th>
+          <td>
+            <span class="favorite_count"><%= @user.favorites.count %>件</span>
+            <%= link_to I18n.t('views.messages.go_favorites_index'), favorites_path, class: "goto_show" %>
+          </td>
+        </tr>
+        <tr>
+          <th>フォローしたユーザー</th>
+          <td>
+            <span class="follower_count"><%= @user.following.count %>件</span>
+            <%= link_to I18n.t('views.messages.go_following_index'), relationships_path, class: "goto_show" %>
+          </td>
+        </tr>
+        <% end %>
+        </table>
 
-<%= link_to I18n.t('views.messages.back_index'), guides_path %>
+
+    </div>
+  </div>
+
+  <div class="guides_index">
+    <ul>
+    <% @guides.each do |guide| %>
+      <li class="flex">
+        <p class="img item">
+          <% main_picture = guide.pictures.find { |picture| picture[:order_number] == 0} %>
+          <% if main_picture[:image] != nil %>
+            <%= image_tag main_picture.image.url %>
+          <% else %>
+            <%= image_tag 'no_image.jpg' %>
+          <% end %>
+        </p>
+        <div class="left item">
+          <p class="title"><%= guide.title %></p>
+          <p class="data_group">
+            <span class="name">ユーザー名:<%= guide.user.name %></span>
+            <span class="prefecture">都道府県:<%= guide.prefecture %></span>
+          </p>
+          <p class="show_btn"><%= link_to I18n.t('views.messages.show'), guide_path(guide.id) %></p>
+        </div>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+
+  <div class="pagination_block">
+    <%= paginate @guides %>
+  </div>
+
+  <div class="lower_nav">
+    <%= link_to I18n.t('views.messages.back_index'), guides_path %>
+  </div>
+
+</article>
