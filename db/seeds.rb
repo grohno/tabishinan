@@ -3,7 +3,7 @@ Faker::Config.locale = :ja
 name = "yukiyukiyuki"
 email = "yuki@ohno.com"
 password = "yukiyuki"
-self_introduction = "# ここに自己紹介文が入ります\r\n\r\n## 見出しテスト\r\n\r\n### 見出しテスト\r\n\r\n> 引用テスト\r\n> 引用テスト\r\n> 引用テスト\r\n\r\n- リスト\r\n- リスト\r\n- リスト\r\n\r\n`hogehogefugafuga`\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```\r\n\r\nhttps://www.google.com/"
+self_introduction = "## ここに自己紹介文が入ります。\r\n- マークダウン形式で記入できます。\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```"
 User.create!(name: name,
              email: email,
              password: password,
@@ -16,7 +16,7 @@ User.create!(name: name,
 name = "kazukazukazu"
 email = "kazu@ohno.com"
 password = "kazukazu"
-self_introduction = "# ここに自己紹介文が入ります\r\n\r\n## 見出しテスト\r\n\r\n### 見出しテスト\r\n\r\n> 引用テスト\r\n> 引用テスト\r\n> 引用テスト\r\n\r\n- リスト\r\n- リスト\r\n- リスト\r\n\r\n`hogehogefugafuga`\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```\r\n\r\nhttps://www.google.com/"
+self_introduction = "## ここに自己紹介文が入ります。\r\n- マークダウン形式で記入できます。\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```"
 User.create!(name: name,
             email: email,
             password: password,
@@ -29,7 +29,7 @@ User.create!(name: name,
 name = "hisahisahisa"
 email = "hisa@ohno.com"
 password = "hisahisa"
-self_introduction = "# ここに自己紹介文が入ります\r\n\r\n## 見出しテスト\r\n\r\n### 見出しテスト\r\n\r\n> 引用テスト\r\n> 引用テスト\r\n> 引用テスト\r\n\r\n- リスト\r\n- リスト\r\n- リスト\r\n\r\n`hogehogefugafuga`\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```\r\n\r\nhttps://www.google.com/"
+self_introduction = "## ここに自己紹介文が入ります。\r\n- マークダウン形式で記入できます。\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```"
 User.create!(name: name,
             email: email,
             password: password,
@@ -42,7 +42,7 @@ User.create!(name: name,
 name = "masamasamasa"
 email = "masa@ohno.com"
 password = "masamasa"
-self_introduction = "# ここに自己紹介文が入ります\r\n\r\n## 見出しテスト\r\n\r\n### 見出しテスト\r\n\r\n> 引用テスト\r\n> 引用テスト\r\n> 引用テスト\r\n\r\n- リスト\r\n- リスト\r\n- リスト\r\n\r\n`hogehogefugafuga`\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```\r\n\r\nhttps://www.google.com/"
+self_introduction = "## ここに自己紹介文が入ります。\r\n- マークダウン形式で記入できます。\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```"
 User.create!(name: name,
             email: email,
             password: password,
@@ -56,7 +56,7 @@ User.create!(name: name,
   name = Faker::Games::Pokemon.name
   email = Faker::Internet.email
   password = "password"
-  self_introduction = "# ここに自己紹介文が入ります\r\n\r\n## 見出しテスト\r\n\r\n### 見出しテスト\r\n\r\n> 引用テスト\r\n> 引用テスト\r\n> 引用テスト\r\n\r\n- リスト\r\n- リスト\r\n- リスト\r\n\r\n`hogehogefugafuga`\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```\r\n\r\nhttps://www.google.com/"
+  self_introduction = "## ここに自己紹介文が入ります。\r\n- マークダウン形式で記入できます。\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```"
   image_num = n + 5
   User.create!(name: name,
                email: email,
