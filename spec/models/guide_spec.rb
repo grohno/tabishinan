@@ -16,5 +16,11 @@ describe 'ガイドモデル機能', type: :model do
         expect(guide).to be_valid
       end
     end
+    context 'ガイドのタイトルと本文に内容が記載され、画像が登録された場合' do
+      it 'バリデーションが通る' do
+        guide = FactoryBot.create(:guide)
+        expect(guide).to be_valid
+      end
+    end
   end
 end
