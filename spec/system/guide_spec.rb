@@ -115,4 +115,34 @@ RSpec.describe '旅ガイド機能', type: :system do
        end
      end
   end
+  describe '画像投稿機能' do
+     context 'サムネイルになるメイン画像を1枚、参考画像を複数枚投稿した場合' do
+       it '該当ページに投稿した画像が表示される' do
+         # guide_pictures = FactoryBot.create(:guide_pictures, user_id: @user.id)
+         visit new_guide_path
+         fill_in "タイトル", with: "guide_pictures_title"
+         fill_in "本文", with: "guide_pictures_content"
+         attach_file 'guide[pictures_attributes][0][image]', "#{Rails.root}/spec/fixtures/test_image_1.jpg"
+         attach_file 'guide[pictures_attributes][1][image]', "#{Rails.root}/spec/fixtures/test_image_2.jpg"
+         attach_file 'guide[pictures_attributes][2][image]', "#{Rails.root}/spec/fixtures/test_image_3.jpg"
+         attach_file 'guide[pictures_attributes][3][image]', "#{Rails.root}/spec/fixtures/test_image_4.jpg"
+         attach_file 'guide[pictures_attributes][4][image]', "#{Rails.root}/spec/fixtures/test_image_5.jpg"
+         page.accept_confirm do
+           click_on '登録する'
+         end
+         click_on '詳細を見る'
+         sleep(0.5)
+         main_image = find('.main_image a')
+         expect(main_image).to have_selector("img[src$='test_image_1.jpg']")
+         picture1 = find('.pictures .picture1 a')
+         expect(picture1).to have_selector("img[src$='test_image_2.jpg']")
+         picture2 = find('.pictures .picture2 a')
+         expect(picture2).to have_selector("img[src$='test_image_3.jpg']")
+         picture3 = find('.pictures .picture3 a')
+         expect(picture3).to have_selector("img[src$='test_image_4.jpg']")
+         picture4 = find('.pictures .picture4 a')
+         expect(picture4).to have_selector("img[src$='test_image_5.jpg']")
+       end
+     end
+  end
 end
