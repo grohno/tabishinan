@@ -6,7 +6,7 @@
     <div class="item left">
       <p class="main_image img">
         <% main_picture = @guide.pictures.find { |picture| picture[:order_number] == 0} %>
-        <% if main_picture[:image] != nil %>
+        <% if  main_picture != nil && main_picture[:image] != nil %>
           <%= link_to image_tag(main_picture.image.url), main_picture.image.url, data: { lightbox: "main_image" } %>
         <% else %>
           <%= image_tag 'no_image.jpg' %>

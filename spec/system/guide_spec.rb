@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe '旅ガイドCRUD機能', type: :system do
+RSpec.describe '旅ガイド機能', type: :system do
   before do
     @user = FactoryBot.create(:user)
     visit new_user_session_path
@@ -76,6 +76,42 @@ RSpec.describe '旅ガイドCRUD機能', type: :system do
          sleep(0.5)
          expect(page).to have_content '旅ガイドを削除しました'
          expect(page).not_to have_content 'guide_delete_title'
+       end
+     end
+  end
+  describe '検索機能' do
+     context 'タイトルで検索した場合' do
+       it '該当の旅ガイドが表示される' do
+         guide_search1 = FactoryBot.create(:guide_search1, user_id: @user.id)
+         guide_search2 = FactoryBot.create(:guide_search2, user_id: @user.id)
+         guide_search3 = FactoryBot.create(:guide_search3, user_id: @user.id)
+         fill_in "タイトル検索", with: "guide_search_title1"
+         click_on '検索'
+         sleep(0.5)
+         expect(page).to have_content 'guide_search_title1_and_3'
+       end
+     end
+     context '都道府県名で検索した場合' do
+       it '該当の旅ガイドが表示される' do
+         guide_search1 = FactoryBot.create(:guide_search1, user_id: @user.id)
+         guide_search2 = FactoryBot.create(:guide_search2, user_id: @user.id)
+         guide_search3 = FactoryBot.create(:guide_search3, user_id: @user.id)
+         find("#search_prefecture").find("option[value='青森県']").select_option
+         click_on '検索'
+         sleep(0.5)
+         expect(page).to have_content 'guide_search_title2'
+       end
+     end
+     context 'タイトルと都道府県名の両方で検索した場合' do
+       it '該当の旅ガイドが表示される' do
+         guide_search1 = FactoryBot.create(:guide_search1, user_id: @user.id)
+         guide_search2 = FactoryBot.create(:guide_search2, user_id: @user.id)
+         guide_search3 = FactoryBot.create(:guide_search3, user_id: @user.id)
+         fill_in "タイトル検索", with: "3"
+         find("#search_prefecture").find("option[value='岩手県']").select_option
+         click_on '検索'
+         sleep(0.5)
+         expect(page).to have_content 'guide_search_title3'
        end
      end
   end

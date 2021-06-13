@@ -26,7 +26,7 @@
     <li class="flex">
       <p class="img item">
         <% main_picture = guide.pictures.find { |picture| picture[:order_number] == 0} %>
-        <% if main_picture[:image] != nil %>
+        <% if main_picture != nil && main_picture[:image] != nil %>
           <%= image_tag main_picture.image.url %>
         <% else %>
           <%= image_tag 'no_image.jpg' %>
