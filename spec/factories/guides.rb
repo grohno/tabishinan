@@ -4,7 +4,7 @@ FactoryBot.define do
     content { 'guide_content' }
     user { FactoryBot.create(:user)}
     after(:build) do |guide|
-      guide.pictures << FactoryBot.build(:picture, guide: guide)
+      guide.pictures << FactoryBot.build(:picture, order_number: 0, guide: guide)
     end
   end
 
