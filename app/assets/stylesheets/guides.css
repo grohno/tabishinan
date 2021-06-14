@@ -1,5 +1,6 @@
 .guides_index #mv {
   background-image:url("/assets/guide_mv_bg_pc.jpg");
+  background-image:image-url("/assets/guide_mv_bg_pc.jpg");
   background-position:10% center;
   background-repeat:no-repeat;
   -moz-background-size:cover;

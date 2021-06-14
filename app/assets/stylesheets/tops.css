@@ -98,6 +98,7 @@
 
 .tops_index article {
   background-image:url("/assets/top_index_bg_img_1.png");
+  background-image:image-url("/assets/top_index_bg_img_1.png");
   padding-bottom: 10px;
 }
 .tops_index .introduction {

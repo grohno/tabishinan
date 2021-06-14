@@ -80,7 +80,8 @@
 
 .registrations_new,
 .sessions_new {
-  background-image:url("/assets/top_index_bg_img_1.png");
+  background-image: url("/assets/top_index_bg_img_1.png");
+  background-image: image-url("/assets/top_index_bg_img_1.png");
 }
 .login_form_block {
   max-width: 600px;
