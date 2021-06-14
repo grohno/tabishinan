@@ -65,7 +65,7 @@
 
   <div class="lower_nav">
     <%= link_to I18n.t('views.messages.back_index'), guides_path %>
-    <% if user_signed_in? && @guide.user.id == current_user.id %>
+    <% if user_signed_in? && @guide.user.id == current_user.id || user_signed_in? && current_user.admin? %>
       <%= link_to I18n.t('views.messages.edit'), edit_guide_path(@guide.id), data: { confirm: I18n.t('views.messages.confirm_edit') } %>
       <%= link_to I18n.t('views.messages.delete'), guide_path(@guide.id), method: :delete ,data: { confirm: I18n.t('views.messages.confirm_delete') } %>
   <% end %>
