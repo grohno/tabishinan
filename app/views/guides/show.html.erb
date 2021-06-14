@@ -29,7 +29,9 @@
       <div class="data_group">
         <div class="user data">
           <span class="name">ユーザー名:<%= @guide.user.name %></span>
-          <%= link_to I18n.t('views.messages.show'), user_path(@guide.user.id) %>
+          <% if user_signed_in? %>
+            <%= link_to I18n.t('views.messages.show'), user_path(@guide.user.id) %>
+          <% end %>
         </div>
         <div class="favorite data">
           <span class="favorite_count">お気に入り数:<%= @guide.favorites.count %></span>
