@@ -1,8 +1,29 @@
 <article>
 
-  <% if user_signed_in? %>
-    <p class="create_new_guide"><%= link_to I18n.t('views.messages.new_guide'), new_guide_path %></p>
-  <% end %>
+  <section id="mv">
+    <div class="inner_block">
+      <h3>気になる「<span>旅</span>」をのぞいてみよう！</h3>
+      <p class="text">
+        <span>旅の指南書</span>には、いろんな旅人が思い思いに楽しんだ旅の思い出が詰まっています。<br>
+        <% unless user_signed_in? %>
+        ユーザー登録をすると、あなたも旅のガイドさんになって旅の案内ページを作成することができるようになります！<br>
+        その他、それぞれの旅人さんのページをお気に入りしたり、気になる旅人のことをフォローしたりなど、楽しみ方はいろいろ。<br>
+        <% end %>
+        さあ、あなたの旅の思い出も、旅の指南書でみんなと共有しましょう！
+      </p>
+
+      <% if user_signed_in? %>
+        <p class="create_new_guide btn_area"><%= link_to I18n.t('views.messages.new_guide'), new_guide_path %></p>
+      <% else %>
+        <div class="non_login btn_area">
+          <p class="new_registration"><%= link_to I18n.t('views.messages.new_registration'), new_user_registration_path %></p>
+          <p class="login"><%= link_to I18n.t('views.messages.login'), new_user_session_path %></p>
+        </div>
+      <% end %>
+    </div>
+
+
+  </section>
 
   <div class="search_box" >
     <%= form_with(local: true, method: :get, url: guides_path ) do |form| %>
