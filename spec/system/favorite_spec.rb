@@ -65,5 +65,4 @@ RSpec.describe 'お気に入り機能', type: :system do
       end
     end
   end
-
 end
