@@ -1,7 +1,7 @@
 /* Preload images */
 body:after {
-  content: url(/assets/close.png) url(/assets/loading.gif) url(/assets/prev.png) url(/assets/next.png);
-  content: image-url(/assets/close.png) image-url(/assets/loading.gif) image-url(/assets/prev.png) image-url(/assets/next.png);
+  content: url("/assets/close.png") url("/assets/loading.gif") url("/assets/prev.png") url("/assets/next.png");
+  content: image-url("/assets/close.png") image-url("/assets/loading.gif") image-url("/assets/prev.png") image-url("/assets/next.png");
 
   display: none;
 }
