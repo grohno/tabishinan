@@ -33,7 +33,7 @@
           <td>
             <% if @user.self_introduction != nil %>
             <div class="markdown-body">
-              <%= markdown(@user.self_introduction) %>
+              <%= markdown(@user.self_introduction).html_safe if @user.self_introduction.present? %>
             <% end %>
             </div>
           </td>
