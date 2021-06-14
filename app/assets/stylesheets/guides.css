@@ -1,6 +1,35 @@
+.guides_index #mv {
+  background-image:url("/assets/guide_mv_bg_pc.jpg");
+  background-position:10% center;
+  background-repeat:no-repeat;
+  -moz-background-size:cover;
+  background-size:cover;
+  padding: 60px 20px;
+  text-align: right;
+  margin-bottom: 40px;
+}
+.guides_index #mv .inner_block {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+  width: 65%;
+  text-align: left;
+}
+.guides_index #mv .inner_block h3 {
+  font-weight: bold;
+}
+.guides_index #mv .inner_block .text {
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+.guides_index #mv .inner_block span {
+  font-size: 150%;
+  font-weight: bold;
+  color: #694a38;
+}
 .guides_index .create_new_guide {
   text-align: center;
-  margin-bottom: 40px;
 }
 .guides_index .create_new_guide a {
   color: #000;
@@ -28,9 +57,60 @@
 }
 .guides_index .create_new_guide a:hover {
   margin-top: 3px;
-  color: #000;
-  background: #fff20a;
   border-bottom: 2px solid #ccc100;
+  opacity: 1;
+}
+.guides_index #mv .inner_block .non_login {
+  text-align: center;
+}
+.guides_index #mv .inner_block .non_login p {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.guides_index #mv .inner_block .non_login p a {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 100vh;
+  color: #fff;
+  background-color: #0357ab;
+  border-bottom: 5px solid #013467;
+}
+.guides_index #mv .inner_block .non_login p a:hover {
+  margin-top: 3px;
+  border-bottom: 2px solid #013467;
+  opacity: 1;
+}
+@media only screen and (max-width: 1000px){
+  .guides_index #mv {
+    background-position: 55% center;
+  }
+  .guides_index #mv .inner_block {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 414px){
+  .guides_index #mv {
+    padding: 30px 10px;
+  }
+  .guides_index #mv .inner_block {
+    padding: 20px 10px;
+  }
 }
 .guides_index .search_box {
   padding: 20px 10px;
