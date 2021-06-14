@@ -33,7 +33,7 @@
           <td>
             <% if @user.self_introduction != nil %>
             <div class="markdown-body">
-              <%= markdown(@user.self_introduction) %>
+              <%= markdown(@user.self_introduction).html_safe if @user.self_introduction.present? %>
             <% end %>
             </div>
           </td>
@@ -65,12 +65,14 @@
   </div>
 
   <div class="guides_index">
+    <h3>旅ガイドページ一覧</h3>
+    <% if @guides.present? %>
     <ul>
     <% @guides.each do |guide| %>
       <li class="flex">
         <p class="img item">
           <% main_picture = guide.pictures.find { |picture| picture[:order_number] == 0} %>
-          <% if main_picture[:image] != nil %>
+          <% if main_picture != nil && main_picture[:image] != nil %>
             <%= image_tag main_picture.image.url %>
           <% else %>
             <%= image_tag 'no_image.jpg' %>
@@ -87,6 +89,9 @@
       </li>
     <% end %>
     </ul>
+    <% else %>
+    <p>まだ旅ガイドは投稿していません</p>
+    <% end %>
   </div>
 
   <div class="pagination_block">

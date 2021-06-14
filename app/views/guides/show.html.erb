@@ -6,7 +6,7 @@
     <div class="item left">
       <p class="main_image img">
         <% main_picture = @guide.pictures.find { |picture| picture[:order_number] == 0} %>
-        <% if main_picture[:image] != nil %>
+        <% if  main_picture != nil && main_picture[:image] != nil %>
           <%= link_to image_tag(main_picture.image.url), main_picture.image.url, data: { lightbox: "main_image" } %>
         <% else %>
           <%= image_tag 'no_image.jpg' %>
@@ -29,7 +29,9 @@
       <div class="data_group">
         <div class="user data">
           <span class="name">ユーザー名:<%= @guide.user.name %></span>
-          <%= link_to I18n.t('views.messages.show'), user_path(@guide.user.id) %>
+          <% if user_signed_in? %>
+            <%= link_to I18n.t('views.messages.show'), user_path(@guide.user.id) %>
+          <% end %>
         </div>
         <div class="favorite data">
           <span class="favorite_count">お気に入り数:<%= @guide.favorites.count %></span>
@@ -44,12 +46,12 @@
       </div>
       <div class="location">
         <p class="address"><span>所在地:</span><%= @guide.prefecture %> <%= @guide.address %></p>
-        <div class="note markdown-body"><%= markdown(@guide.note) %></div>
+        <div class="note markdown-body"><%= markdown(@guide.note).html_safe if @guide.note.present? %></div>
       </div>
     </div>
   </div>
   <div class="content markdown-body">
-    <%= markdown(@guide.content) %>
+    <%= markdown(@guide.content).html_safe if @guide.content.present? %>
   </div>
   <div class="pictures flex">
     <% @guide.pictures.order(order_number: :asc).each_with_index do |picture, i| %>
@@ -63,7 +65,7 @@
 
   <div class="lower_nav">
     <%= link_to I18n.t('views.messages.back_index'), guides_path %>
-    <% if user_signed_in? && @guide.user.id == current_user.id %>
+    <% if user_signed_in? && @guide.user.id == current_user.id || user_signed_in? && current_user.admin? %>
       <%= link_to I18n.t('views.messages.edit'), edit_guide_path(@guide.id), data: { confirm: I18n.t('views.messages.confirm_edit') } %>
       <%= link_to I18n.t('views.messages.delete'), guide_path(@guide.id), method: :delete ,data: { confirm: I18n.t('views.messages.confirm_delete') } %>
   <% end %>

@@ -46,6 +46,9 @@ class GuidesController < ApplicationController
   end
 
   def edit
+    if @guide.user.id != current_user.id && !current_user.admin?
+      redirect_to guides_path
+    end
   end
 
   def update
@@ -57,8 +60,12 @@ class GuidesController < ApplicationController
   end
 
   def destroy
-    @guide.destroy
-    redirect_to guides_path, notice: I18n.t('views.messages.destroy_guide')
+    if @guide.user.id == current_user.id || current_user.admin?
+      @guide.destroy
+      redirect_to guides_path, notice: I18n.t('views.messages.destroy_guide')
+    else
+      redirect_to guides_path
+    end
   end
 
   private
