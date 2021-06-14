@@ -1,0 +1,281 @@
+ @charset "utf-8";
+
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+/* h1, h2, h3, h4, h5, h6, p, blockquote, pre, */
+p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, menu, nav, section, summary,
+time, mark, audio, video {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  font-weight: normal;
+  vertical-align:baseline;
+  background:transparent;
+}
+body {
+  line-height:1;
+}
+article,aside,details,figcaption,figure,
+footer,header,menu,nav,section {
+	display:block;
+}
+nav ul {
+ list-style:none;
+}
+blockquote, q {
+ quotes:none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content:'';
+  content:none;
+}
+a {
+  margin:0;
+  padding:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+}
+ins {
+  background-color:#ff9;
+  color:#222;
+  text-decoration:none;
+}
+mark {
+  background-color:#ff9;
+  color:#222;
+  font-style:italic;
+  font-weight:bold;
+}
+del {
+  text-decoration: line-through;
+}
+abbr[title], dfn[title] {
+  border-bottom:1px dotted;
+  cursor:help;
+}
+table {
+  border-collapse:collapse;
+  border-spacing:0;
+}
+hr {
+  display:block;
+  height:1px;
+  border:0;
+  border-top:1px solid #cccccc;
+  margin:1em 0;
+  padding:0;
+}
+input, select {
+  vertical-align:middle;
+}
+ol li,
+ul li {
+	list-style: none;
+	list-style-position: inside;
+}
+img {
+	border:none;
+	vertical-align: bottom;
+}
+* {
+ -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+      -o-box-sizing: border-box;
+     -ms-box-sizing: border-box;
+         box-sizing: border-box;
+}
+html {
+  height: 100%;
+  font-size: 62.5%;
+}
+body {
+  height: 100%;
+  font-size: 1.6rem;
+  font-family: Avenir , "Open Sans" , "Helvetica Neue" , Helvetica , Arial , Verdana , Roboto , "ヒラギノ角ゴ Pro W3" , "Hiragino Kaku Gothic Pro" , "游ゴシック" , "Yu Gothic" , "游ゴシック体" , "YuGothic" ,  "メイリオ" , Meiryo , "Meiryo UI" , "ＭＳ Ｐゴシック" , "MS PGothic" , sans-serif;
+  line-height: 1.8;
+  color: #222;
+  background: #fafafa;
+}
+.serif {
+  font-family:"Roboto Slab" , Garamond , "Times New Roman" , "ヒラギノ明朝 Pro W3" , "Hiragino Mincho Pro" , "HiraMinProN-W3" , "游明朝" , "Yu Mincho" , "游明朝体" , "YuMincho" , "HGS明朝E" , "ＭＳ Ｐ明朝" , "MS PMincho" , serif;
+  font-size: 16px;
+}
+a {
+color: #222;
+	text-decoration:none;
+}
+a:hover {
+  color: #222;
+  opacity: 0.6;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+a:hover img {
+	opacity: 0.8;
+	-webkit-transition: all .5s;
+	transition: all .5s;
+}
+.red {
+	color: #002a6f;
+}
+.cf:after{
+	content:".";
+	display:block;
+	clear:both;
+	height:0;
+	visibility:hidden;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+.img {
+  text-align: center;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+article {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.material-icons {
+  vertical-align: middle;
+}
+#error_explanation {
+  margin-bottom: 40px;
+}
+#error_explanation h3 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+#error_explanation ul li {
+  list-style-type: disc;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  border-radius: 6px;
+  font-size: 17px;
+  padding: 10px;
+  border: 1px solid #dddfe2;
+  outline: none;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  border: 1px solid #81d0cb;
+}
+.label_block .label {
+  padding: 0.3em 0.6em;
+}
+h2 {
+  border-bottom: solid 3px #cce4ff;
+  position: relative;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+h2:after {
+  position: absolute;
+  content: " ";
+  display: block;
+  border-bottom: solid 3px #ccc;
+  bottom: -3px;
+  width: 20%;
+}
+h3 {
+  border-bottom: solid 1px #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+input[type="submit"] {
+  border: none;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+  color: #fff;
+  background-color: #0357ab;
+  border-bottom: 5px solid #013467;
+  border-radius: 100vh;
+  outline: none;
+}
+input[type="submit"]:hover {
+  margin-top: 3px;
+  border-bottom: 2px solid #013467;
+}
+
+@media only screen and (min-width: 769px){
+  .sp,
+  .mini {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px){
+  body {
+    font-size: 1.4rem;
+    line-height: 1.6;
+  }
+  .inner {
+    width: 100%;
+    padding: 0 10px;
+  }
+  .pc,
+  .mini {
+    display: none;
+  }
+  .flex {
+    flex-wrap: wrap;
+  }
+  article {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+@media only screen and (max-width: 414px){
+  .mini {
+    display: block;
+  }
+}

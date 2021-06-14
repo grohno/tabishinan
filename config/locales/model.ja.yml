@@ -1,0 +1,26 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      guide: 旅ガイド
+      picture: 画像情報
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        current_password: 現在のパスワード
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: ログインを記憶
+        admin: 管理者
+        self_introduction: 自己紹介文
+        image: アイコン画像
+      guide:
+        title: タイトル
+        content: 本文
+        prefecture: 都道府県
+        address: 市区町村以下
+        note: 備考
+      picture:
+        image: 画像
+        main_flag: メイン画像設定

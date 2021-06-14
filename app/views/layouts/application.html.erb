@@ -1,15 +1,66 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tabishinan</title>
+    <title><%= I18n.t('views.messages.app_name') %> | <%= I18n.t('views.messages.app_description') %>I18n.t('views.messages.app_description')</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=2.0,user-scalable=yes">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <% if controller.controller_name == "tops" %>
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/vegas/2.4.4/vegas.min.css">
+    <% end %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="<%= controller.controller_name %>_<%= controller.action_name %>">
+    <% if controller.controller_name != "tops" %>
+      <header class="fixed_header">
+        <div class="container">
+          <div class="flex">
+            <h1 class="logofont item">
+              <%= link_to guides_path do %>
+                <%= image_tag 'logo_horizontal.png', alt: I18n.t('views.messages.app_name') %>
+              <% end %>
+            </h1>
+            <div class="btns item">
+              <% if user_signed_in? %>
+                <% if admin? %>
+                  <%= link_to I18n.t('views.messages.admin_index'), admin_users_path %>
+                <% end %>
+                <%= link_to I18n.t('views.messages.my_page'), user_path(current_user.id) %>
+                <%= link_to I18n.t('views.messages.logout'), destroy_user_session_path, method: :delete %>
+              <% else %>
+                <%= link_to I18n.t('views.messages.new_registration'), new_user_registration_path %>
+                <%= link_to I18n.t('views.messages.login'), new_user_session_path %>
+              <% end %>
+            </div><!--/btns-->
+          </div><!--/flex-->
+        </div><!--/container-->
+      </header>
+
+      <div class="container">
+        <div class="alert_block">
+          <% if notice %>
+            <p class="alert alert-notice"><%= notice %></p>
+          <% end %>
+          <% if alert %>
+            <p class="alert alert-error"><%= alert %></p>
+          <% end %>
+        </div>
+        <%= yield %>
+      </div>
+
+      <footer class="fixed_footer">
+        <div class="container">
+          <% date = Time.new %>
+          <p class="copyright"><small>&#174; <%= date.year.to_s %> <%= I18n.t('views.messages.app_name') %> All Rights Reserved.</small></p>
+        </div>
+      </footer>
+    <% else %>
+      <%= yield %>
+    <% end %>
   </body>
 </html>

@@ -1,0 +1,72 @@
+<article>
+
+  <section id="mv">
+    <div class="inner_block">
+      <h3>気になる「<span>旅</span>」をのぞいてみよう！</h3>
+      <p class="text">
+        <span>旅の指南書</span>には、いろんな旅人が思い思いに楽しんだ旅の思い出が詰まっています。<br>
+        <% unless user_signed_in? %>
+        ユーザー登録をすると、あなたも旅のガイドさんになって旅の案内ページを作成することができるようになります！<br>
+        その他、それぞれの旅人さんのページをお気に入りしたり、気になる旅人のことをフォローしたりなど、楽しみ方はいろいろ。<br>
+        <% end %>
+        さあ、あなたの旅の思い出も、旅の指南書でみんなと共有しましょう！
+      </p>
+
+      <% if user_signed_in? %>
+        <p class="create_new_guide btn_area"><%= link_to I18n.t('views.messages.new_guide'), new_guide_path %></p>
+      <% else %>
+        <div class="non_login btn_area">
+          <p class="new_registration"><%= link_to I18n.t('views.messages.new_registration'), new_user_registration_path %></p>
+          <p class="login"><%= link_to I18n.t('views.messages.login'), new_user_session_path %></p>
+        </div>
+      <% end %>
+    </div>
+
+
+  </section>
+
+  <div class="search_box" >
+    <%= form_with(local: true, method: :get, url: guides_path ) do |form| %>
+      <span>
+        <%= form.label :search_title, I18n.t('views.messages.search_title') %>
+        <%= form.text_field :search_title, placeholder: I18n.t('views.messages.search_by_title') %>
+      </span>
+      <span>
+        <%= form.label :search_prefecture, I18n.t('views.messages.search_prefectures') %>
+        <%= form.select :search_prefecture, Guide.prefectures.keys, { include_blank: I18n.t('views.messages.please_selected') } %>
+      </span>
+      <span class="submit">
+        <%= form.submit I18n.t('views.messages.search'), name: "search" %>
+      </span>
+    <% end %>
+  </div>
+
+  <h2>旅ガイドページ一覧</h2>
+  <ul>
+  <% @guides.each do |guide| %>
+    <li class="flex">
+      <p class="img item">
+        <% main_picture = guide.pictures.find { |picture| picture[:order_number] == 0} %>
+        <% if main_picture != nil && main_picture[:image] != nil %>
+          <%= image_tag main_picture.image.url %>
+        <% else %>
+          <%= image_tag 'no_image.jpg' %>
+        <% end %>
+      </p>
+      <div class="left item">
+        <p class="title"><%= guide.title %></p>
+        <p class="data_group">
+          <span class="name">ユーザー名:<%= guide.user.name %></span>
+          <span class="prefecture">都道府県:<%= guide.prefecture %></span>
+          <span class="favorite_count">お気に入り数:<%= guide.favorites.count %></span>
+        </p>
+        <p class="show_btn"><%= link_to I18n.t('views.messages.show'), guide_path(guide.id) %></p>
+      </div>
+    </li>
+  <% end %>
+  </ul>
+  <div class="pagination_block">
+    <%= paginate @guides %>
+  </div>
+
+</article>

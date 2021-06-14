@@ -1,0 +1,211 @@
+/* loading */
+
+#loading {
+  width: 100vw;
+  height: 100vh;
+  transition: all 1s;
+  background-color: #8cafc9;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+.loaded {
+  opacity: 0;
+  visibility: hidden;
+}
+#loading p{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+#loading p span {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  display: inline-block;
+  margin: 0 -.05em;
+  animation: loading 1.4s infinite alternate;
+}
+#loading p span:nth-child(2) {
+  animation-delay: .1s;
+}
+#loading p span:nth-child(3) {
+  animation-delay: .2s;
+}
+#loading p span:nth-child(4) {
+  animation-delay: .3s;
+}
+#loading p span:nth-child(5) {
+  animation-delay: .4s;
+}
+#loading p span:nth-child(6) {
+  animation-delay: .5s;
+}
+#loading p span:nth-child(7) {
+  animation-delay: .6s;
+}
+@keyframes loading {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* top header */
+
+.tops_index .alert_block {
+  color: #fff;
+}
+
+.tops_index #slider {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  padding-top: 60px;
+  background-color: #8cafc9;
+}
+.tops_index .centerbox {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+.tops_index h1 img {
+  width: 600px;
+  height: auto;
+}
+.tops_index .scroll {
+  margin-top: 30px;
+  font-size: 3rem;
+  color: #fff;
+  line-height: 1;
+}
+.tops_index .scroll span {
+  display: block;
+  font-size: 4rem;
+}
+
+/* top article */
+
+.tops_index article {
+  background-image:url("/assets/top_index_bg_img_1.png");
+  padding-bottom: 10px;
+}
+.tops_index .introduction {
+  text-align: center;
+}
+.tops_index .introduction p {
+  display: inline-block;
+  text-align: left;
+  color: #694a38;
+  font-weight: bold;
+}
+.tops_index .introduction p span {
+  font-size: 120%;
+  font-weight: bold;
+}
+.tops_index .go_guide_index {
+  text-align: center;
+  margin-top: 40px;
+}
+.tops_index .top_btn a {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+}
+.tops_index .go_guide_index a {
+  color: #000;
+  background-color: #fff100;
+  border-bottom: 5px solid #ccc100;
+}
+.tops_index .go_guide_index a:hover {
+  margin-top: 3px;
+  color: #000;
+  background: #fff20a;
+  border-bottom: 2px solid #ccc100;
+}
+.tops_index .btn_block p {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.tops_index a:hover {
+  opacity: 1;
+}
+.tops_index .btn_block .flex {
+  margin-top: 20px;
+}
+.tops_index .btn_block .flex p {
+  width: 49%;
+}
+.tops_index .btn_block .flex p:first-child {
+  text-align: right;
+}
+.tops_index .btn_block .flex p:last-child {
+  text-align: left;
+}
+.tops_index .btn_block a {
+  color: #fff;
+  background-color: #0357ab;
+  border-bottom: 5px solid #013467;
+}
+.tops_index .btn_block a:hover {
+  margin-top: 3px;
+  border-bottom: 2px solid #013467;
+}
+.tops_index .btn_block a {
+  border-radius: 100vh;
+}
+.tops_index .guest a {
+  background-color: #5f52a0;
+  border-bottom: 5px solid #4b417e;
+}
+.tops_index .guest a:hover {
+  border-bottom: 2px solid #4b417e;
+}
+
+@media only screen and (max-width: 768px){
+  .tops_index .btn_block .flex p:first-child,
+  .tops_index .btn_block .flex p:last-child {
+    width: 100%;
+    text-align: center;
+  }
+  .tops_index h1 img {
+    max-width: 90%;
+  }
+
+}
+
+/* footer */
+
+.tops_index footer {
+  margin-top: 40px;
+}
+.tops_index .copyright {
+  text-align: center;
+  font-weight: bold;
+}

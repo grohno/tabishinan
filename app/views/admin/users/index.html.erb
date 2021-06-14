@@ -1,0 +1,43 @@
+<article>
+
+  <h2>管理画面：ユーザー一覧</h2>
+
+  <div class="user_list">
+    <ul>
+      <% @users.each do |user| %>
+        <li>
+          <p class="img">
+            <% if user.image.url != nil %>
+              <%= image_tag user.image.url %>
+            <% else %>
+              <%= image_tag 'no_image.jpg' %>
+            <% end %>
+          </p>
+          <p class="name">
+            <%= user.name %>さん
+            <% if user == current_user %>
+              <span class="admin">管理者</span>
+            <% end %>
+          </p>
+          <p class="btn_group">
+            <%= link_to I18n.t('views.messages.show'), user_path(user.id), class: "show_user" %>
+            <%= link_to I18n.t('views.messages.edit_user'), edit_admin_user_path(user.id), data: { confirm: I18n.t('views.messages.confirm_edit') }, class: "edit_user" %>
+            <% if user != current_user %>
+              <%= link_to I18n.t('views.messages.delete_user'), admin_user_path(user.id), class: "delete_user", method: :delete ,data: { confirm: I18n.t('views.messages.confirm_delete') } %>
+            <% end %>
+          </p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="pagination_block">
+    <%= paginate @users %>
+  </div>
+
+  <div class="lower_nav">
+    <%= link_to I18n.t('views.messages.back_index'), guides_path %>
+    <%= link_to I18n.t('views.messages.new_registration'), new_admin_user_path %>
+  </div>
+
+</article>
