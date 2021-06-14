@@ -145,4 +145,23 @@ RSpec.describe '旅ガイド機能', type: :system do
        end
      end
   end
+  describe 'シェアボタン表示' do
+     context '任意の旅ガイド詳細画面を訪問した場合' do
+       it 'Twitter/Facebook/LINEのシェアボタンが表示されている' do
+         visit new_guide_path
+         fill_in "タイトル", with: "guide_sns_title"
+         fill_in "本文", with: "guide_sns_content"
+         page.accept_confirm do
+           click_on '登録する'
+         end
+         click_on '詳細を見る'
+         twitter = find('.twitter')
+         facebook = find('.facebook')
+         line = find('.line')
+         expect(twitter).to have_css '.twitter-share-button'
+         expect(facebook).to have_css '.facebook-share-button'
+         expect(line).to have_css '.line-it-button'
+       end
+     end
+  end
 end
