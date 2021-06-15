@@ -6,6 +6,7 @@ class Guide < ApplicationRecord
   has_many :favorite_users, through: :favorites, source: :user
 
   validates :title, presence: true, length: { maximum: 255 }
+  validates :content, presence: true
   validates :prefecture, presence: true
 
   enum prefecture: {

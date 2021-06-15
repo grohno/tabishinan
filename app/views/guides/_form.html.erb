@@ -16,9 +16,10 @@
         <tr>
           <th>
             <%= form.label :title %>
+            <span class="required">※必須</span>
           </th>
           <td>
-            <%= form.text_field :title %>
+            <%= form.text_field :title, required: true %>
           </td>
         </tr>
         <tr>
@@ -43,10 +44,11 @@
         <tr>
           <th>
             <%= form.label :content %>
+            <span class="required">※必須</span>
           </th>
           <td>
             ※マークダウン形式で記入できます。
-            <%= form.text_area :content %>
+            <%= form.text_area :content, required: true %>
           </td>
         </tr>
         <tr>
