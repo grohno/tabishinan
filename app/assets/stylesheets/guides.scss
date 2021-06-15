@@ -405,6 +405,11 @@
   width: 8em;
   font-weight: bold;
 }
+.guides_post_form table th .required {
+  display: block;
+  color: #ff8a84;
+  font-weight: bold;
+}
 .guides_post_form table td input[type="text"],
 .guides_post_form table td textarea {
   width: 100%;
@@ -488,10 +493,19 @@
 .guides_post_form table th,
 .guides_post_form table td {
   display: block;
+  width: 100%;
   padding: 10px 0;
 }
 .guides_post_form table th {
   padding: 0;
+}
+.guides_post_form table th,
+.guides_post_form table th label {
+  width: auto;
+}
+.guides_post_form table th .required {
+  display: inline-block;
+  margin-left: 10px;
 }
 .guides_post_form table td .pictures span img {
     width: 150px;
