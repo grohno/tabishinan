@@ -70,7 +70,7 @@ end
 
 6.times do |n|
   title = "旅のタイトルテキストテキストテキスト"
-  content = "# ここに本文テキストが入ります。\r\n\r\n## 見出しテスト\r\n\r\n### 見出しテスト\r\n\r\n> 引用テスト\r\n> 引用テスト\r\n> 引用テスト\r\n\r\n- リスト\r\n- リスト\r\n- リスト\r\n\r\n`hogehogefugafuga`\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```\r\n\r\nhttps://www.google.com/"
+  content = "# ここに本文テキストが入ります。\r\n\r\n## 見出しテスト\r\n\r\n### 見出しテスト\r\n\r\n> 引用テスト\r\n> 引用テスト\r\n> 引用テスト\r\n\r\n- リスト\r\n- リスト\r\n- リスト\r\n\r\n`hogehogefugafuga`\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```\r\nhttps://www.google.com/\r\n\r\n<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.827853398552!2d139.76493611547255!3d35.68124053757853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bfbd89f700b%3A0x277c49ba34ed38!2z5p2x5Lqs6aeF!5e0!3m2!1sja!2sjp!4v1623729958459!5m2!1sja!2sjp\" width=\"600\" height=\"300\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>"
   prefecture = n + 1
   address = "◯◯市◯◯◯町◯◯丁目◯◯番◯◯号"
   note = "### 所在地備考をマークダウン形式で記入できます\r\n\r\n- リスト\r\n- リスト\r\n- リスト\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```"
@@ -86,7 +86,7 @@ end
 
 6.times do |n|
   title = "旅のタイトルテキストテキストテキスト"
-  content = "# ここに本文テキストが入ります。\r\n\r\n## 見出しテスト\r\n\r\n### 見出しテスト\r\n\r\n> 引用テスト\r\n> 引用テスト\r\n> 引用テスト\r\n\r\n- リスト\r\n- リスト\r\n- リスト\r\n\r\n`hogehogefugafuga`\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```\r\n\r\nhttps://www.google.com/"
+  content = "# ここに本文テキストが入ります。\r\n\r\n## 見出しテスト\r\n\r\n### 見出しテスト\r\n\r\n> 引用テスト\r\n> 引用テスト\r\n> 引用テスト\r\n\r\n- リスト\r\n- リスト\r\n- リスト\r\n\r\n`hogehogefugafuga`\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```\r\nhttps://www.google.com/\r\n\r\n<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.827853398552!2d139.76493611547255!3d35.68124053757853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bfbd89f700b%3A0x277c49ba34ed38!2z5p2x5Lqs6aeF!5e0!3m2!1sja!2sjp!4v1623729958459!5m2!1sja!2sjp\" width=\"600\" height=\"300\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>"
   prefecture = n + 7
   address = "◯◯市◯◯◯町◯◯丁目◯◯番◯◯号"
   note = "### 所在地備考をマークダウン形式で記入できます\r\n\r\n- リスト\r\n- リスト\r\n- リスト\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```"
@@ -102,7 +102,7 @@ end
 
 14.times do |n|
   title = "旅のタイトルテキストテキストテキスト"
-  content = "# ここに本文テキストが入ります。\r\n\r\n## 見出しテスト\r\n\r\n### 見出しテスト\r\n\r\n> 引用テスト\r\n> 引用テスト\r\n> 引用テスト\r\n\r\n- リスト\r\n- リスト\r\n- リスト\r\n\r\n`hogehogefugafuga`\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```\r\n\r\nhttps://www.google.com/"
+  content = "# ここに本文テキストが入ります。\r\n\r\n## 見出しテスト\r\n\r\n### 見出しテスト\r\n\r\n> 引用テスト\r\n> 引用テスト\r\n> 引用テスト\r\n\r\n- リスト\r\n- リスト\r\n- リスト\r\n\r\n`hogehogefugafuga`\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```\r\nhttps://www.google.com/\r\n\r\n<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.827853398552!2d139.76493611547255!3d35.68124053757853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bfbd89f700b%3A0x277c49ba34ed38!2z5p2x5Lqs6aeF!5e0!3m2!1sja!2sjp!4v1623729958459!5m2!1sja!2sjp\" width=\"600\" height=\"300\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>"
   prefecture = n + 13
   address = "◯◯市◯◯◯町◯◯丁目◯◯番◯◯号"
   note = "### 所在地備考をマークダウン形式で記入できます\r\n\r\n- リスト\r\n- リスト\r\n- リスト\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```"
