@@ -64,7 +64,7 @@
             <% end %>
           </div>
           <div class="pictures_form">
-            <%= form.fields_for :pictures do | picture | %>
+            <%= form.fields_for :pictures, @guide.pictures.sort_by(&:order_number) do | picture | %>
               <p class="picture picture_<%= picture.index %>">
                 <% if picture.index == 0 %>
                   <span class="image_flag">メイン画像: </span>
