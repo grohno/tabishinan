@@ -5,7 +5,7 @@ module ApplicationHelper
   # マークダウン形式の導入（redcarpet）
   def markdown(text)
     options = {
-      filter_html:     true,
+      filter_html:     false,
       hard_wrap:       true,
       space_after_headers: true,
     }
