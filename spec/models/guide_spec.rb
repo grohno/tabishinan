@@ -9,6 +9,13 @@ describe 'ガイドモデル機能', type: :model do
         expect(guide).not_to be_valid
       end
     end
+    context 'ガイドの本文が空の場合' do
+      it 'バリデーションにひっかる' do
+        user = FactoryBot.create(:user)
+        guide = Guide.new(title: '失敗テスト', content: '', user_id: user.id)
+        expect(guide).not_to be_valid
+      end
+    end
     context 'ガイドのタイトルと本文に内容が記載されている場合' do
       it 'バリデーションが通る' do
         user = FactoryBot.create(:user)
