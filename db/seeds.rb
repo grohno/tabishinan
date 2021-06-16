@@ -1,5 +1,18 @@
 Faker::Config.locale = :ja
 
+name = "Guest"
+email = "guest@example.com"
+password = SecureRandom.urlsafe_base64
+self_introduction = "## ここに自己紹介文が入ります。\r\n- マークダウン形式で記入できます。\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```"
+User.create!(name: name,
+             email: email,
+             password: password,
+             password_confirmation: password,
+             self_introduction: self_introduction,
+             image: open("#{Rails.root}/db/user_images/user_image_1.jpg"),
+             admin: false,
+             )
+
 name = "yukiyukiyuki"
 email = "yuki@ohno.com"
 password = "yukiyuki"
@@ -74,7 +87,7 @@ end
   prefecture = n + 1
   address = "◯◯市◯◯◯町◯◯丁目◯◯番◯◯号"
   note = "### 訪問のポイント\r\n\r\n- 県境をまたいで観光しているので、じっくり旅をするなら上記住所近辺を起点にして宿をとり、電車やバス移動をおすすめします！"
-  user_id = 1
+  user_id = 2
   Guide.create!(title: title,
                content: content,
                prefecture: prefecture,
@@ -90,7 +103,7 @@ end
   prefecture = n + 7
   address = "◯◯市◯◯◯町◯◯丁目◯◯番◯◯号"
   note = "### 交通機関について\r\n- バスの本数が少ないので、健脚であれば徒歩で移動されることをオススメします\r\n- 上記住所近辺の主要駅◯◯でレンタサイクルを利用できますが、営業終了が少し早めなのでご注意を！"
-  user_id = 2
+  user_id = 3
   Guide.create!(title: title,
                content: content,
                prefecture: prefecture,
@@ -106,7 +119,7 @@ end
   prefecture = n + 13
   address = "◯◯市◯◯◯町◯◯丁目◯◯番◯◯号"
   note = "### 訪問のポイント\r\n\r\n- 県境をまたいで観光しているので、じっくり旅をするなら上記住所近辺を起点にして宿をとり、電車やバス移動をおすすめします！"
-  user_id = n + 3
+  user_id = n + 4
   Guide.create!(title: title,
                content: content,
                prefecture: prefecture,
@@ -123,7 +136,7 @@ end
   prefecture = n + 19
   address = "◯◯市◯◯◯町◯◯丁目◯◯番◯◯号"
   note = "### 交通機関について\r\n- バスの本数が少ないので、健脚であれば徒歩で移動されることをオススメします\r\n- 上記住所近辺の主要駅◯◯でレンタサイクルを利用できますが、営業終了が少し早めなのでご注意を！"
-  user_id = n + 9
+  user_id = n + 10
   Guide.create!(title: title,
                content: content,
                prefecture: prefecture,
@@ -140,7 +153,7 @@ end
   prefecture = 20
   address = "◯◯市◯◯◯町◯◯丁目◯◯番◯◯号"
   note = "### 訪問のポイント\r\n\r\n- 県境をまたいで観光しているので、じっくり旅をするなら上記住所近辺を起点にして宿をとり、電車やバス移動をおすすめします！"
-  user_id = n + 1
+  user_id = n + 2
   Guide.create!(title: title,
                content: content,
                prefecture: prefecture,
@@ -214,6 +227,14 @@ end
 13.times do |n|
   follower_id = 1
   followed_id = n + 2
+  Relationship.create!(follower_id: follower_id,
+               followed_id: followed_id,
+               )
+end
+
+13.times do |n|
+  follower_id = 2
+  followed_id = n + 3
   Relationship.create!(follower_id: follower_id,
                followed_id: followed_id,
                )
