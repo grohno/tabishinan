@@ -219,6 +219,7 @@ ja:
       new_guide: '旅ガイドを書く！'
       confirm_submit: 'この情報で登録してよろしいですか？'
       back_index: '一覧に戻る'
+      go_index: '旅ガイド一覧'
       edit: '編集'
       delete: '削除'
       confirm_edit: 'この情報を編集してよろしいですか？'

@@ -17,8 +17,6 @@
 //= require_directory ./vendor
 //= require_tree .
 
-
-
 // Loading
 window.onload = function() {
 	const spinner = document.getElementById('loading');
