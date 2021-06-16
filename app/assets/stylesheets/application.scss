@@ -74,6 +74,9 @@
     width: auto;
     height: 40px;
   }
+  .fixed_header .btns {
+    display: none;
+  }
 }
 
 /* sign_in sign_up */
@@ -208,4 +211,98 @@
 }
 .fixed_footer .container {
   text-align: center;
+}
+
+/* drawer */
+
+.drawer--right .drawer-hamburger {
+  display: none;
+}
+@media only screen and (max-width: 768px){
+  .drawer--right .drawer-hamburger {
+    display: block;
+    top: 3px;
+    right: 10px;
+    padding: 0;
+    width: 45px;
+    line-height: 1;
+  }
+  .drawer--right.drawer-open .drawer-hamburger {
+    right: 17rem;
+  }
+  .drawer-hamburger .menu {
+    text-align: center;
+    padding-bottom: 3px;
+    color: #756d41;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  .drawer-hamburger .btn {
+    background-color: #b89e11;
+    border: 1px solid #fff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 10px 10px 20px;
+    width: 45px;
+  }
+  .drawer-nav {
+    color: #fff;
+    // background-color: rgba(0,0,0,0.7);
+    background-color: rgba(117,109,65,0.7);
+    padding: 20px 0;
+    z-index: 10000;
+  }
+  .drawer-nav ul li {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+  	width: 100%;
+  	text-align: left;
+    border-bottom: 1px solid #fafafa;
+  }
+  .drawer-nav ul li a {
+  	color: #fff;
+  	display: block;
+    padding: 10px;
+  }
+  .drawer-nav ul li a::before {
+    content: 'chevron_right';
+    font-family: "Material Icons";
+    color: #ccc100;
+    font-size: 1.8rem;
+    vertical-align: middle;
+  }
+  .drawer-nav ul li a:hover {
+    text-decoration: none;
+  }
+  .drawer-hamburger-icon,
+  .drawer-hamburger-icon::before,
+  .drawer-hamburger-icon::after {
+    background-color: #fff;
+  }
+}
+@media only screen and (max-width: 414px){
+  .drawer--right .drawer-hamburger {
+    top: 0;
+    right: 0;
+  }
+  .drawer-hamburger .menu {
+    display: none;
+  }
+  .drawer-hamburger .btn {
+    background-color: rgba(255,255,255,0.5);
+    border: none;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+  }
+  .drawer-hamburger-icon, .drawer-hamburger-icon::before, .drawer-hamburger-icon::after {
+    background-color: #e60012;
+  }
+  .drawer-nav ul li {
+    font-size: 13px;
+  }
+  .drawer-nav ul li a {
+    padding: 5px 10px;
+  }
 }
