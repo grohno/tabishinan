@@ -38,6 +38,9 @@
       <span class="submit">
         <%= form.submit I18n.t('views.messages.search'), name: "search" %>
       </span>
+      <span class="search_reset">
+        <%= link_to I18n.t('views.messages.search_reset'), guides_path %>
+      </span>
     <% end %>
   </div>
 
