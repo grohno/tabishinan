@@ -15,8 +15,30 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="<%= controller.controller_name %>_<%= controller.action_name %>">
+  <body class="<%= controller.controller_name %>_<%= controller.action_name %> drawer drawer--right">
     <% if controller.controller_name != "tops" %>
+      <button type="button" class="drawer-toggle drawer-hamburger">
+        <span class="menu">MENU</span>
+        <div class="btn">
+          <span class="sr-only">toggle navigation</span>
+          <span class="drawer-hamburger-icon"></span>
+        </div>
+      </button>
+      <nav class="drawer-nav">
+        <ul class="drawer-menu">
+          <li><%= link_to I18n.t('views.messages.go_index'), guides_path %></li>
+          <% if user_signed_in? %>
+            <% if admin? %>
+              <li><%= link_to I18n.t('views.messages.admin_index'), admin_users_path %></li>
+            <% end %>
+            <li><%= link_to I18n.t('views.messages.my_page'), user_path(current_user.id) %></li>
+            <li><%= link_to I18n.t('views.messages.logout'), destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to I18n.t('views.messages.new_registration'), new_user_registration_path %></li>
+            <li><%= link_to I18n.t('views.messages.login'), new_user_session_path %></li>
+          <% end %>
+        </ul>
+      </nav>
       <header class="fixed_header">
         <div class="container">
           <div class="flex">
@@ -26,6 +48,7 @@
               <% end %>
             </h1>
             <div class="btns item">
+              <%= link_to I18n.t('views.messages.go_index'), guides_path %>
               <% if user_signed_in? %>
                 <% if admin? %>
                   <%= link_to I18n.t('views.messages.admin_index'), admin_users_path %>
