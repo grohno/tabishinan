@@ -3,6 +3,7 @@ Faker::Config.locale = :ja
 name = "Guest"
 email = "guest@example.com"
 password = SecureRandom.urlsafe_base64
+uid = SecureRandom.uuid
 self_introduction = "## ここに自己紹介文が入ります。\r\n- マークダウン形式で記入できます。\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```"
 User.create!(name: name,
              email: email,
@@ -11,11 +12,13 @@ User.create!(name: name,
              self_introduction: self_introduction,
              image: open("#{Rails.root}/db/user_images/user_image_1.jpg"),
              admin: false,
+             uid: uid
              )
 
 name = "yukiyukiyuki"
 email = "yuki@ohno.com"
 password = "yukiyuki"
+uid = SecureRandom.uuid
 self_introduction = "## ここに自己紹介文が入ります。\r\n- マークダウン形式で記入できます。\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```"
 User.create!(name: name,
              email: email,
@@ -24,11 +27,13 @@ User.create!(name: name,
              self_introduction: self_introduction,
              image: open("#{Rails.root}/db/user_images/user_image_1.jpg"),
              admin: true,
+             uid: uid
              )
 
 name = "kazukazukazu"
 email = "kazu@ohno.com"
 password = "kazukazu"
+uid = SecureRandom.uuid
 self_introduction = "## ここに自己紹介文が入ります。\r\n- マークダウン形式で記入できます。\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```"
 User.create!(name: name,
             email: email,
@@ -36,12 +41,14 @@ User.create!(name: name,
             password_confirmation: password,
             self_introduction: self_introduction,
             image: open("#{Rails.root}/db/user_images/user_image_2.jpg"),
-            admin: false
+            admin: false,
+            uid: uid
             )
 
 name = "hisahisahisa"
 email = "hisa@ohno.com"
 password = "hisahisa"
+uid = SecureRandom.uuid
 self_introduction = "## ここに自己紹介文が入ります。\r\n- マークダウン形式で記入できます。\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```"
 User.create!(name: name,
             email: email,
@@ -49,12 +56,14 @@ User.create!(name: name,
             password_confirmation: password,
             self_introduction: self_introduction,
             image: open("#{Rails.root}/db/user_images/user_image_3.jpg"),
-            admin: false
+            admin: false,
+            uid: uid
             )
 
 name = "masamasamasa"
 email = "masa@ohno.com"
 password = "masamasa"
+uid = SecureRandom.uuid
 self_introduction = "## ここに自己紹介文が入ります。\r\n- マークダウン形式で記入できます。\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```"
 User.create!(name: name,
             email: email,
@@ -62,13 +71,15 @@ User.create!(name: name,
             password_confirmation: password,
             self_introduction: self_introduction,
             image: open("#{Rails.root}/db/user_images/user_image_4.jpg"),
-            admin: false
+            admin: false,
+            uid: uid
             )
 
 16.times do |n|
   name = Faker::Games::Pokemon.name
   email = Faker::Internet.email
   password = "password"
+  uid = SecureRandom.uuid
   self_introduction = "## ここに自己紹介文が入ります。\r\n- マークダウン形式で記入できます。\r\n\r\n```\r\nhello world!\r\nhello Ruby on Rails!\r\n```"
   image_num = n + 5
   User.create!(name: name,
@@ -77,7 +88,8 @@ User.create!(name: name,
                password_confirmation: password,
                self_introduction: self_introduction,
                image: open("#{Rails.root}/db/user_images/user_image_#{image_num}.jpg"),
-               admin: false
+               admin: false,
+               uid: uid
                )
 end
 
