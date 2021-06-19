@@ -36,14 +36,18 @@ class User < ApplicationRecord
     end
   end
 
+  def self.create_unique_string
+    SecureRandom.uuid
+  end
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-   before_destroy :ensure_has_admin
-   private
-   def ensure_has_admin
-     if User.where(admin: true).count == 1 && self.admin?
-       throw(:abort)
-     end
-   end
+  before_destroy :ensure_has_admin
+  private
+  def ensure_has_admin
+    if User.where(admin: true).count == 1 && self.admin?
+      throw(:abort)
+    end
+  end
 end
