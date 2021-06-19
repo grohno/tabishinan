@@ -256,3 +256,4 @@ ja:
       logged_in_as_admin_guest_user: '管理者ゲストユーザーとしてログインしました。'
       app_name: '旅の指南書'
       app_description: 'オリジナルガイドブック作成アプリ'
+      oauth_google_login: 'Googleアカウントでログイン'

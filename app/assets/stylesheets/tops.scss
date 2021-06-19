@@ -181,12 +181,66 @@
 .tops_index .btn_block a {
   border-radius: 100vh;
 }
+.tops_index .guest {
+  border: 1px solid #e0e0e0;
+  background: rgba(255,255,255, 0.7);
+  margin: 20px auto;
+  max-width: 600px;
+  padding: 20px 10px;
+  border-radius: 10px;
+}
+.tops_index .guest .guest_title {
+  font-weight: bold;
+  font-size: 1.8rem;
+}
 .tops_index .guest a {
   background-color: #5f52a0;
   border-bottom: 5px solid #4b417e;
 }
 .tops_index .guest a:hover {
   border-bottom: 2px solid #4b417e;
+}
+.tops_index .oauth {
+  border: 1px solid #f0efd5;
+  background: rgba(255,255,255, 0.7);
+  margin: 20px auto;
+  max-width: 600px;
+  padding: 20px 10px;
+  border-radius: 10px;
+}
+.tops_index .oauth .oauth_title {
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+.tops_index .oauth .oauth_btn a {
+  border-radius: 5px;
+  background: none;
+  border-bottom: none;
+  color: #444;
+  font-weight: bold;
+  font-size: 1.8rem;
+  display: inline-block;
+  border: 1px solid #e0e0e0;
+  padding: 8px 20px 5px 20px;
+  box-shadow: 0px 2px 10px -5px #777;
+}
+.tops_index .oauth .oauth_btn a:hover {
+  text-decoration: none;
+  margin-top: 0;
+  opacity: 0.6;
+}
+.tops_index .oauth .oauth_btn a::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  background-image: image-url('oauth_google.png');
+  background-position:center;
+  background-repeat:no-repeat;
+  -moz-background-size:contain;
+  background-size:contain;
+  vertical-align: middle;
+  margin-right: 20px;
 }
 
 @media only screen and (max-width: 768px){
@@ -198,7 +252,19 @@
   .tops_index h1 img {
     max-width: 90%;
   }
-
+}
+@media only screen and (max-width: 414px){
+  .tops_index .oauth .oauth_title,
+  .tops_index .guest .guest_title {
+    font-size: 1.6rem;
+  }
+  .tops_index .oauth .oauth_btn a {
+    font-size: 1.4rem;
+    padding: 8px 10px 5px 10px;
+  }
+  .tops_index .oauth .oauth_btn a::before {
+    margin-right: 10px;
+  }
 }
 
 /* footer */
