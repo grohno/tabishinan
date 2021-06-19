@@ -53,6 +53,10 @@
         <p class="new_registration top_btn item"><%= link_to I18n.t('views.messages.new_registration'), new_user_registration_path %></p>
         <p class="login top_btn item"><%= link_to I18n.t('views.messages.login'), new_user_session_path %></p>
       </div>
+      <div class="oauth">
+        <p class="oauth_title">他のアカウントでログイン</p>
+        <p class="google"><%= link_to I18n.t('views.messages.oauth_google_login'), user_google_omniauth_authorize_path %></p>
+      </div>
       <div class="guest">
         <p class="guest_sign_in top_btn item"><%= link_to I18n.t('views.messages.guest_sign_in'), users_guest_sign_in_path, method: :post %></p>
         <p class="admin_guest_sign_in top_btn item"><%= link_to I18n.t('views.messages.admin_guest_sign_in'), users_admin_guest_sign_in_path, method: :post %></p>
