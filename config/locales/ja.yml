@@ -257,3 +257,4 @@ ja:
       app_name: '旅の指南書'
       app_description: 'オリジナルガイドブック作成アプリ'
       oauth_google_login: 'Googleアカウントでログイン'
+      conversations_show: 'メッセージを見る'
