@@ -19,6 +19,30 @@
 .users_show .user_data .right table {
   width: 100%;
 }
+.users_show .user_data .left .conversations {
+  text-align: center;
+  margin-top: 20px;
+}
+.users_show .user_data .left .conversations a {
+  display: inline-block;
+  background: #d8e698;
+  padding: 5px 10px 3px;
+  border-radius: 5px;
+  color: #694a38;
+  font-size: 14px;font-weight: bold;
+}
+.users_show .user_data .left .conversations a::before {
+  content: 'question_answer';
+  font-family: "Material Icons";
+  color: #fff;
+  font-size: 2.6rem;
+  line-height: 1;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.users_show .user_data .left .conversations a:hover {
+  text-decoration: none;
+}
 
 .users_show .user_data .right table tr {
   border-bottom: 1px solid #ccc;

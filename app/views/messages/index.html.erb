@@ -1,5 +1,5 @@
 <article>
-  <h2>メッセージ詳細</h2>
+  <h2><%= @conversation.target_user(current_user).name %>さんとのメッセージ詳細</h2>
 
   <% if @over_ten %>
     <p class="over_ten"><%= link_to I18n.t('views.messages.previous_conversation'), '?m=all' %></p>
@@ -9,23 +9,29 @@
     <ul>
     <% @messages.each do |message| %>
       <% if message.body.present? %>
-        <li>
-          <p class="img">
-            <% if message.user.image.url != nil %>
-              <%= image_tag message.user.image.url %>
-            <% else %>
-              <%= image_tag 'no_image.jpg' %>
+        <% if message.user == current_user %>
+        <li class="flex current_user">
+        <% else %>
+        <li class="flex target_user">
+        <% end %>
+          <div class="left item">
+            <p class="img">
+              <% if message.user.image.url != nil %>
+                <%= image_tag message.user.image.url %>
+              <% else %>
+                <%= image_tag 'no_image.jpg' %>
+              <% end %>
+            </p>
+            <% if message.user == current_user %>
+              <p class="confirmed"><%= message.confirmed ? I18n.t('views.messages.read') : I18n.t('views.messages.unread') %></p>
             <% end %>
-          </p>
-          <p class="name"><%= message.user.name %></p>
-          <p class="time"><%= message.message_time %></p>
-          <p class="body"><%= message.body %></p>
-          <% if message.user == current_user %>
-            <p class="confirmed"><%= message.confirmed ? I18n.t('views.messages.read') : I18n.t('views.messages.unread') %></p>
-          <% end %>
+          </div>
+          <div class="right item">
+            <p class="name"><%= message.user.name %></p>
+            <p class="time"><%= message.message_time %></p>
+            <p class="body"><%= safe_join(message.body.split("\n"),tag(:br)) %></p>
+          </div>
         </li>
-      <% else %>
-        <li><p>やり取りしたメッセージはまだありません。</p></li>
       <% end %>
     <% end %>
     </ul>

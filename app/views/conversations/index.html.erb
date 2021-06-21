@@ -17,17 +17,11 @@
             </p>
             <p class="name"><%= conversation.target_user(current_user).name %> さん</p>
             <p class="messages_link"><%= link_to I18n.t('views.messages.conversations_show'), conversation_messages_path(conversation)%></p>
-          <% else %>
-            <p>メッセージをやりとりしたユーザーはまだいません。</p>
           <% end %>
         </li>
       <% end %>
     <% end %>
     </ul>
-  </div>
-
-  <div class="pagination_block">
-    <%= paginate @conversations %>
   </div>
 
   <div class="lower_nav">
