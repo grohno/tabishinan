@@ -258,3 +258,5 @@ ja:
       app_description: 'オリジナルガイドブック作成アプリ'
       oauth_google_login: 'Googleアカウントでログイン'
       conversations_show: 'メッセージを見る'
+      conversations_list: 'メッセージ一覧を見る'
+      conversations_post: 'メッセージを送る'
