@@ -260,3 +260,6 @@ ja:
       conversations_show: 'メッセージを見る'
       conversations_list: 'メッセージ一覧を見る'
       conversations_post: 'メッセージを送る'
+      previous_conversation: '最新10件より前のメッセージを表示する'
+      read: '既読'
+      unread: '未読'
