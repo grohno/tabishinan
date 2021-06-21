@@ -1,0 +1,38 @@
+<article>
+
+  <h2>メッセージ一覧</h2>
+
+  <div class="conversation_list">
+    <ul>
+    <% if @conversations.size != 0 %>
+      <% @conversations.each do |conversation| %>
+        <li>
+          <% if conversation.target_user(current_user).present? %>
+            <p class="img">
+              <% if conversation.target_user(current_user).image.url != nil %>
+                <%= image_tag conversation.target_user(current_user).image.url %>
+              <% else %>
+                <%= image_tag 'no_image.jpg' %>
+              <% end %>
+            </p>
+            <p class="name"><%= conversation.target_user(current_user).name %> さん</p>
+            <p class="messages_link"><%= link_to I18n.t('views.messages.conversations_show'), conversation_messages_path(conversation)%></p>
+          <% else %>
+            <p>メッセージをやりとりしたユーザーはまだいません。</p>
+          <% end %>
+        </li>
+      <% end %>
+    <% end %>
+    </ul>
+  </div>
+
+  <div class="pagination_block">
+    <%= paginate @conversations %>
+  </div>
+
+  <div class="lower_nav">
+    <%= link_to I18n.t('views.messages.back_index'), guides_path %>
+    <%= link_to I18n.t('views.messages.back_usershow'), user_path(current_user.id) %>
+  </div>
+
+</article>

@@ -10,6 +10,13 @@
           <%= image_tag 'no_image.jpg' %>
         <% end %>
       </p>
+      <p class="conversations">
+        <% if @user.id == current_user.id %>
+          <%= link_to I18n.t('views.messages.conversations_list'), conversations_path %>
+        <% else %>
+          <%= link_to I18n.t('views.messages.conversations_post'), conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post %>
+        <% end %>
+      </p>
     </div>
     <div class="item right">
       <table>
