@@ -10,7 +10,7 @@ User.create!(name: name,
              password: password,
              password_confirmation: password,
              self_introduction: self_introduction,
-             image: open("#{Rails.root}/db/user_images/user_image_1.jpg"),
+             image: open("#{Rails.root}/db/user_images/user_image_16.jpg"),
              admin: false,
              uid: uid
              )
@@ -249,5 +249,81 @@ end
   followed_id = n + 3
   Relationship.create!(follower_id: follower_id,
                followed_id: followed_id,
+               )
+end
+
+1.times do |n|
+  sender_id = 2
+  recipient_id = 1
+  Conversation.create!(sender_id: sender_id,
+               recipient_id: recipient_id,
+               )
+end
+
+
+4.times do |n|
+  body = "メッセージ送信テスト#{n}"
+  conversation_id = 1
+  user_id = 2
+  Message.create!(body: body,
+                conversation_id: conversation_id,
+                user_id: user_id,
+               )
+end
+
+4.times do |n|
+  body = "メッセージ返信テスト#{n}"
+  conversation_id = 1
+  user_id = 1
+  Message.create!(body: body,
+                conversation_id: conversation_id,
+                user_id: user_id,
+               )
+end
+
+4.times do |n|
+  body = "メッセージ送信テスト#{n}"
+  conversation_id = 1
+  user_id = 2
+  Message.create!(body: body,
+                conversation_id: conversation_id,
+                user_id: user_id,
+               )
+end
+
+
+13.times do |n|
+  sender_id = 1
+  recipient_id = n + 3
+  Conversation.create!(sender_id: sender_id,
+               recipient_id: recipient_id,
+               )
+end
+
+13.times do |n|
+  body = "メッセージ送信テスト#{n}"
+  conversation_id = n + 2
+  user_id = 1
+  Message.create!(body: body,
+                conversation_id: conversation_id,
+                user_id: user_id,
+               )
+end
+
+13.times do |n|
+  sender_id = 2
+  recipient_id = n + 7
+  Conversation.create!(sender_id: sender_id,
+               recipient_id: recipient_id,
+               )
+end
+
+13.times do |n|
+  body = "メッセージ送信テスト#{n}"
+  conversation_id = n + 15
+  user_id = 2
+  Message.create!(body: body,
+                conversation_id: conversation_id,
+                user_id: user_id,
                )
 end

@@ -1,0 +1,54 @@
+.conversations_index .conversation_list {
+  text-align: center;
+}
+.conversations_index .conversation_list ul {
+  display: inline-block;
+  text-align: left;
+}
+.conversations_index .conversation_list ul li {
+  margin-bottom: 20px;
+}
+.conversations_index .conversation_list ul li p {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.conversations_index .conversation_list ul li p:last-child {
+  margin-right: 0;
+}
+.conversations_index .conversation_list ul li .img img {
+  max-width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  object-fit: cover;
+}
+.conversations_index .conversation_list ul li .name {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #694a38;
+}
+.conversations_index .conversation_list ul li .messages_link a:hover {
+  text-decoration: none;
+}
+.conversations_index .conversation_list ul li .messages_link a::before {
+  content: 'find_in_page';
+  font-family: "Material Icons";
+  color: #888;
+  font-size: 2.6rem;
+  line-height: 1;
+  vertical-align: middle;
+}
+@media only screen and (max-width: 768px){
+  .conversations_index .conversation_list ul,
+  .conversations_index .conversation_list ul li p {
+    display: block;
+    text-align: center;
+  }
+  .conversations_index .conversation_list ul li p {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+  .conversations_index .conversation_list ul li .name {
+    font-size: 1.6rem;
+  }
+}

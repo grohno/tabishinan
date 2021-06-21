@@ -31,7 +31,7 @@ $(function() {
 	//ロード or スクロールされると実行
 	$(window).on('load scroll', function(){
 		//ヘッダーの高さ分スクロールするとfixedクラスを追加
-		if ($(window).scrollTop() > 30) {
+		if ($(window).scrollTop() > 10) {
 			$('.fixed_header').addClass('fixed');
 		} else {
 			//80px以下だとfixedクラスを削除
