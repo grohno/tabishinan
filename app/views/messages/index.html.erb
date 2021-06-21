@@ -1,0 +1,51 @@
+<article>
+  <h2>メッセージ詳細</h2>
+
+  <% if @over_ten %>
+    <p class="over_ten"><%= link_to I18n.t('views.messages.previous_conversation'), '?m=all' %></p>
+  <% end %>
+
+  <div class="messages">
+    <ul>
+    <% @messages.each do |message| %>
+      <% if message.body.present? %>
+        <li>
+          <p class="img">
+            <% if message.user.image.url != nil %>
+              <%= image_tag message.user.image.url %>
+            <% else %>
+              <%= image_tag 'no_image.jpg' %>
+            <% end %>
+          </p>
+          <p class="name"><%= message.user.name %></p>
+          <p class="time"><%= message.message_time %></p>
+          <p class="body"><%= message.body %></p>
+          <% if message.user == current_user %>
+            <p class="confirmed"><%= message.confirmed ? I18n.t('views.messages.read') : I18n.t('views.messages.unread') %></p>
+          <% end %>
+        </li>
+      <% else %>
+        <li><p>やり取りしたメッセージはまだありません。</p></li>
+      <% end %>
+    <% end %>
+    </ul>
+  </div>
+
+  <div class="message">
+    <%= form_with(model: [@conversation, @message]) do |f| %>
+      <div class="field">
+        <%= f.text_area :body, class: "form-control" %>
+      </div>
+        <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+      <div class="actions">
+        <%= f.submit I18n.t('views.messages.conversations_post') %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="lower_nav">
+    <%= link_to I18n.t('views.messages.conversations_list'), conversations_path %>
+    <%= link_to I18n.t('views.messages.back_usershow'), user_path(current_user.id) %>
+  </div>
+
+</article>
