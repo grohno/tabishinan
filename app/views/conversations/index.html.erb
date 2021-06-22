@@ -24,6 +24,10 @@
     </ul>
   </div>
 
+  <div class="pagination_block">
+    <%= paginate @conversations %>
+  </div>
+
   <div class="lower_nav">
     <%= link_to I18n.t('views.messages.back_index'), guides_path %>
     <%= link_to I18n.t('views.messages.back_usershow'), user_path(current_user.id) %>
