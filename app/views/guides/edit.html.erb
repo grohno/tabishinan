@@ -5,7 +5,7 @@
 
   <div class="lower_nav">
     <%= link_to I18n.t('views.messages.back_index'), guides_path %>
-    <%= link_to I18n.t('views.messages.back_show'), guide_path(@guide.id) %>
+    <%= link_to I18n.t('views.messages.back_show'), guide_path(@guide.id), data: { "turbolinks" => false } %>
   </div>
 
 </article>

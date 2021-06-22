@@ -91,7 +91,7 @@
             <span class="name">ユーザー名:<%= guide.user.name %></span>
             <span class="prefecture">都道府県:<%= guide.prefecture %></span>
           </p>
-          <p class="show_btn"><%= link_to I18n.t('views.messages.show'), guide_path(guide.id) %></p>
+          <p class="show_btn"><%= link_to I18n.t('views.messages.show'), guide_path(guide.id), data: { "turbolinks" => false } %></p>
         </div>
       </li>
     <% end %>
