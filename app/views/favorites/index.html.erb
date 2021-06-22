@@ -22,7 +22,7 @@
               <span class="prefecture">都道府県:<%= favorite.guide.prefecture %></span>
               <span class="favorite_count">お気に入り数:<%= favorite.guide.favorites.count %></span>
             </p>
-            <p class="show_btn"><%= link_to I18n.t('views.messages.show'), guide_path(favorite.guide.id) %></p>
+            <p class="show_btn"><%= link_to I18n.t('views.messages.show'), guide_path(favorite.guide.id), data: { "turbolinks" => false } %></p>
           </div>
         </li>
       <% end %>
