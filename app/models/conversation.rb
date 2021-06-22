@@ -9,6 +9,8 @@ class Conversation < ApplicationRecord
     where("(conversations.sender_id = ? AND conversations.recipient_id =?) OR (conversations.sender_id = ? AND  conversations.recipient_id =?)", sender_id,recipient_id, recipient_id, sender_id)
   end
 
+  scope :target_conversation, -> (current_user) { where("(sender_id = ?) OR (recipient_id = ?)" , current_user.id , current_user.id) }
+
   def target_user(current_user)
     if sender_id == current_user.id
       User.find(recipient_id)

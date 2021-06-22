@@ -2,7 +2,7 @@ class ConversationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @conversations = Conversation.all.page(params[:page])
+    @conversations = Conversation.target_conversation(current_user).page(params[:page]).per(12)
   end
 
   def create
