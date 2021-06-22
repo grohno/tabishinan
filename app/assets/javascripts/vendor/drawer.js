@@ -181,6 +181,10 @@
 }));
 
 // drawer
-$(document).ready(function() {
+// $(document).ready(function() {
+//   $(".drawer").drawer();
+// });
+
+$(document).on('turbolinks:load', function() {
   $(".drawer").drawer();
 });
