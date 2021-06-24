@@ -110,5 +110,7 @@ class GuidesController < ApplicationController
     minus_items.each do |minus_item|
       @guides.delete(minus_item)
     end
+
+    @guides.sort! { |a| a[:updated_at] }
   end
 end
