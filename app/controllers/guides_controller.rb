@@ -4,12 +4,18 @@ class GuidesController < ApplicationController
 
   def index
     if params[:search]
-      if params[:search_title].present? && params[:search_prefecture].present?
-        @guides = Guide.search_title(params[:search_title]).search_prefecture(params[:search_prefecture]).page(params[:page]).per(5)
-      elsif params[:search_title].present?
-        @guides = Guide.search_title(params[:search_title]).page(params[:page]).per(5)
+      if params[:search_keyword].present? && params[:search_prefecture].present?
+        search_keyword(params[:search_keyword])
+        @guides = Guide.scope_prefecture(params[:search_prefecture]).order(updated_at: :desc)
+        @guides = @guides.page(params[:page]).per(5)
+        @search_keyword = params[:search_keyword]
+        @search_prefecture = params[:search_prefecture]
+      elsif params[:search_keyword].present?
+        search_keyword(params[:search_keyword])
+        @guides = Kaminari.paginate_array(@guides).page(params[:page]).per(5)
+        @search_keyword = params[:search_keyword]
       elsif params[:search_prefecture].present?
-        @guides = Guide.search_prefecture(params[:search_prefecture]).page(params[:page]).per(5)
+        @guides = Guide.scope_prefecture(params[:search_prefecture]).page(params[:page]).per(5)
       else
         @guides = Guide.order(updated_at: :desc).page(params[:page]).per(5)
       end
@@ -80,5 +86,29 @@ class GuidesController < ApplicationController
 
   def set_guide
     @guide = Guide.find(params[:id])
+  end
+
+  def search_keyword(search_keyword)
+    split_keyword = search_keyword.split(/[[:blank:]]+/)
+    minus_keyword = split_keyword.select {|word| word.match(/^-/) }
+    split_keyword.reject! {|word| word.match(/^-/) }
+    minus_keyword.each {|word| word.slice!(/^-/) }
+
+    @guides = []
+    split_keyword.each do |keyword|
+      next if keyword == ""
+      @guides += Guide.scope_keyword(keyword)
+    end
+    @guides.uniq!
+
+    minus_items = []
+    minus_keyword.each do |keyword|
+      next if keyword == ""
+      minus_items += Guide.scope_keyword(keyword)
+    end
+
+    minus_items.each do |minus_item|
+      @guides.delete(minus_item)
+    end
   end
 end
