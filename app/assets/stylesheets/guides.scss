@@ -123,6 +123,13 @@
   display: inline-block;
   text-align: left;
 }
+.guides_index .search_box form .actions,
+.guides_index .search_box form .fields {
+  display: inline-block;
+}
+.guides_index .search_box form .fields {
+  margin-right: 20px;
+}
 .guides_index .search_box form label {
   font-weight: bold;
 }
@@ -253,7 +260,17 @@
   background: -webkit-linear-gradient(bottom, #fdfbfb 0%, #ebedee 100%);
   background: linear-gradient(to top, #fdfbfb 0%, #ebedee 100%);
 }
-
+@media only screen and (max-width: 1199px){
+  .guides_index .search_box form .actions,
+  .guides_index .search_box form .fields {
+    display: block;
+    text-align: center;
+  }
+  .guides_index .search_box form .fields {
+    margin-bottom: 20px;
+    margin-right: 0;
+  }
+}
 @media only screen and (max-width: 1000px){
   .guides_index .search_box form span {
     display: block;
