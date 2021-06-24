@@ -27,20 +27,24 @@
 
   <div class="search_box" >
     <%= form_with(local: true, method: :get, url: guides_path ) do |form| %>
-      <span>
-        <%= form.label :search_title, I18n.t('views.messages.search_title') %>
-        <%= form.text_field :search_title, placeholder: I18n.t('views.messages.search_by_title') %>
-      </span>
-      <span>
-        <%= form.label :search_prefecture, I18n.t('views.messages.search_prefectures') %>
-        <%= form.select :search_prefecture, Guide.prefectures.keys, { include_blank: I18n.t('views.messages.please_selected') } %>
-      </span>
-      <span class="submit">
-        <%= form.submit I18n.t('views.messages.search'), name: "search" %>
-      </span>
-      <span class="search_reset">
-        <%= link_to I18n.t('views.messages.search_reset'), guides_path %>
-      </span>
+      <div class="fields">
+        <span>
+          <%= form.label :search_keyword, I18n.t('views.messages.search_by_keyword') %>
+          <%= form.text_field :search_keyword, value: @search_keyword, placeholder: I18n.t('views.messages.search_by_keyword') %>
+        </span>
+        <span>
+          <%= form.label :search_prefecture, I18n.t('views.messages.search_prefectures') %>
+          <%= form.select :search_prefecture, Guide.prefectures.keys, { include_blank: I18n.t('views.messages.please_selected'), selected: @search_prefecture } %>
+        </span>
+      </div>
+      <div class="actions">
+        <span class="submit">
+          <%= form.submit I18n.t('views.messages.search'), name: "search" %>
+        </span>
+        <span class="search_reset">
+          <%= link_to I18n.t('views.messages.search_reset'), guides_path %>
+        </span>
+      </div>
     <% end %>
   </div>
 

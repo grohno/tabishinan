@@ -22,6 +22,7 @@ class Guide < ApplicationRecord
     沖縄県:47
    }
 
-   scope :search_title, -> (search_title) { where("title LIKE ?", "%#{search_title}%") }
-   scope :search_prefecture, -> (search_prefecture) { where(prefecture: search_prefecture)}
+  scope :scope_prefecture, -> (search_prefecture) { where(prefecture: search_prefecture)}
+
+  scope :scope_keyword, -> (search_keyword) { joins(:user).where('name LIKE ? OR title LIKE ? OR content LIKE ? OR address LIKE ? OR note LIKE ?', "%#{search_keyword}%", "%#{search_keyword}%", "%#{search_keyword}%", "%#{search_keyword}%", "%#{search_keyword}%")}
 end
