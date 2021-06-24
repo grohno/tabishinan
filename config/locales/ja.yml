@@ -263,3 +263,4 @@ ja:
       previous_conversation: '最新10件より前のメッセージを表示する'
       read: '既読'
       unread: '未読'
+      search_by_keyword: 'キーワードで検索する'
