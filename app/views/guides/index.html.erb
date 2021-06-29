@@ -21,8 +21,6 @@
         </div>
       <% end %>
     </div>
-
-
   </section>
 
   <div class="search_box" >
@@ -31,10 +29,6 @@
         <span>
           <%= form.label :search_keyword, I18n.t('views.messages.search_by_keyword') %>
           <%= form.text_field :search_keyword, value: @search_keyword, placeholder: I18n.t('views.messages.search_by_keyword') %>
-        </span>
-        <span>
-          <%= form.label :search_prefecture, I18n.t('views.messages.search_prefectures') %>
-          <%= form.select :search_prefecture, Guide.prefectures.keys, { include_blank: I18n.t('views.messages.please_selected'), selected: @search_prefecture } %>
         </span>
       </div>
       <div class="actions">
