@@ -327,3 +327,9 @@ end
                 user_id: user_id,
                )
 end
+
+26.times do |n|
+  id = n + 1
+  guide = Guide.find(id)
+  guide.update!(search_field: "#{guide.user.name}_#{guide.title}_#{guide.content}_#{guide.address}_#{guide.note}_#{guide.prefecture}")
+end
