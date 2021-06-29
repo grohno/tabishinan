@@ -33,18 +33,21 @@ FactoryBot.define do
     title { 'guide_search_title1_and_3' }
     content { 'guide_search_content1' }
     prefecture { 1 }
+    search_field {'guide_search_title1_and_3_guide_search_content1_北海道'}
   end
 
   factory :guide_search2, class: "Guide" do
     title { 'guide_search_title2' }
     content { 'guide_search_content2' }
     prefecture { 2 }
+    search_field {'guide_search_title2_guide_search_content2_青森県'}
   end
 
   factory :guide_search3, class: "Guide" do
     title { 'guide_search_title3' }
     content { 'guide_search_content3' }
     prefecture { 3 }
+    search_field {'guide_search_title3_guide_search_content3_岩手県'}
   end
 
   factory :guide_pictures, class: "Guide" do

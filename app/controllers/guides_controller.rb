@@ -4,18 +4,10 @@ class GuidesController < ApplicationController
 
   def index
     if params[:search]
-      if params[:search_keyword].present? && params[:search_prefecture].present?
-        search_keyword(params[:search_keyword])
-        @guides = Guide.scope_prefecture(params[:search_prefecture]).order(updated_at: :desc)
-        @guides = @guides.page(params[:page]).per(5)
-        @search_keyword = params[:search_keyword]
-        @search_prefecture = params[:search_prefecture]
-      elsif params[:search_keyword].present?
+      if params[:search_keyword].present?
         search_keyword(params[:search_keyword])
         @guides = Kaminari.paginate_array(@guides).page(params[:page]).per(5)
         @search_keyword = params[:search_keyword]
-      elsif params[:search_prefecture].present?
-        @guides = Guide.scope_prefecture(params[:search_prefecture]).page(params[:page]).per(5)
       else
         @guides = Guide.order(updated_at: :desc).page(params[:page]).per(5)
       end
@@ -36,6 +28,7 @@ class GuidesController < ApplicationController
 
   def create
     @guide = current_user.guides.build(guide_params)
+    @guide.search_field = "#{current_user.name}_#{@guide.title}_#{@guide.content}_#{@guide.address}_#{@guide.note}_#{@guide.prefecture}"
     if params[:back]
       render :new
     else
@@ -59,6 +52,7 @@ class GuidesController < ApplicationController
 
   def update
     if @guide.update(guide_edit_params)
+      @guide.update!(search_field: "#{current_user.name}_#{@guide.title}_#{@guide.content}_#{@guide.address}_#{@guide.note}_#{@guide.prefecture}")
       redirect_to guide_path(@guide.id), notice: I18n.t('views.messages.update_guide')
     else
       render :edit

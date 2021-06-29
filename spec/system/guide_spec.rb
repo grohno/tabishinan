@@ -41,7 +41,7 @@ RSpec.describe '旅ガイド機能', type: :system do
      context '任意の旅ガイド編集画面に遷移し、編集ボタンを押した場合' do
        it '該当ページの内容を変更できる' do
          visit new_guide_path
-         fill_in "タイトル", with: "guide_edit_title"
+         fill_in "guide[title]", with: "guide_edit_title"
          fill_in "本文", with: "guide_edit_content"
          page.accept_confirm do
            click_on '登録する'
@@ -85,7 +85,7 @@ RSpec.describe '旅ガイド機能', type: :system do
          guide_search1 = FactoryBot.create(:guide_search1, user_id: @user.id)
          guide_search2 = FactoryBot.create(:guide_search2, user_id: @user.id)
          guide_search3 = FactoryBot.create(:guide_search3, user_id: @user.id)
-         fill_in "タイトル検索", with: "guide_search_title1"
+         fill_in "キーワードで検索する", with: "title1"
          click_on '検索'
          sleep(0.5)
          expect(page).to have_content 'guide_search_title1_and_3'
@@ -96,7 +96,7 @@ RSpec.describe '旅ガイド機能', type: :system do
          guide_search1 = FactoryBot.create(:guide_search1, user_id: @user.id)
          guide_search2 = FactoryBot.create(:guide_search2, user_id: @user.id)
          guide_search3 = FactoryBot.create(:guide_search3, user_id: @user.id)
-         find("#search_prefecture").find("option[value='青森県']").select_option
+         fill_in "キーワードで検索する", with: "青森県"
          click_on '検索'
          sleep(0.5)
          expect(page).to have_content 'guide_search_title2'
@@ -107,8 +107,7 @@ RSpec.describe '旅ガイド機能', type: :system do
          guide_search1 = FactoryBot.create(:guide_search1, user_id: @user.id)
          guide_search2 = FactoryBot.create(:guide_search2, user_id: @user.id)
          guide_search3 = FactoryBot.create(:guide_search3, user_id: @user.id)
-         fill_in "タイトル検索", with: "3"
-         find("#search_prefecture").find("option[value='岩手県']").select_option
+         fill_in "キーワードで検索する", with: "3 岩手県"
          click_on '検索'
          sleep(0.5)
          expect(page).to have_content 'guide_search_title3'
