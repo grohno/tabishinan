@@ -24,6 +24,10 @@
   </section>
 
   <div class="search_box" >
+    <p class="example">
+      スペース区切りで複数ワードでの検索とマイナスを付けての除外検索ができます<br>
+      <span> 例) yuki -西行 長野 </span>
+    </p>
     <%= form_with(local: true, method: :get, url: guides_path ) do |form| %>
       <div class="fields">
         <span>
