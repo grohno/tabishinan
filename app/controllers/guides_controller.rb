@@ -36,6 +36,7 @@ class GuidesController < ApplicationController
 
   def create
     @guide = current_user.guides.build(guide_params)
+    @guide.search_field = "#{current_user.name}_#{@guide.title}_#{@guide.content}_#{@guide.address}_#{@guide.note}_#{@guide.prefecture}"
     if params[:back]
       render :new
     else
@@ -59,6 +60,7 @@ class GuidesController < ApplicationController
 
   def update
     if @guide.update(guide_edit_params)
+      @guide.update!(search_field: "#{current_user.name}_#{@guide.title}_#{@guide.content}_#{@guide.address}_#{@guide.note}_#{@guide.prefecture}")
       redirect_to guide_path(@guide.id), notice: I18n.t('views.messages.update_guide')
     else
       render :edit
