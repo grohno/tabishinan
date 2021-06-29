@@ -4,18 +4,10 @@ class GuidesController < ApplicationController
 
   def index
     if params[:search]
-      if params[:search_keyword].present? && params[:search_prefecture].present?
-        search_keyword(params[:search_keyword])
-        @guides = Guide.scope_prefecture(params[:search_prefecture]).order(updated_at: :desc)
-        @guides = @guides.page(params[:page]).per(5)
-        @search_keyword = params[:search_keyword]
-        @search_prefecture = params[:search_prefecture]
-      elsif params[:search_keyword].present?
+      if params[:search_keyword].present?
         search_keyword(params[:search_keyword])
         @guides = Kaminari.paginate_array(@guides).page(params[:page]).per(5)
         @search_keyword = params[:search_keyword]
-      elsif params[:search_prefecture].present?
-        @guides = Guide.scope_prefecture(params[:search_prefecture]).page(params[:page]).per(5)
       else
         @guides = Guide.order(updated_at: :desc).page(params[:page]).per(5)
       end
