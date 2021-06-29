@@ -21,20 +21,18 @@
         </div>
       <% end %>
     </div>
-
-
   </section>
 
   <div class="search_box" >
+    <p class="example">
+      スペース区切りで複数ワードでの検索とマイナスを付けての除外検索ができます<br>
+      <span> 例) yuki -西行 長野 </span>
+    </p>
     <%= form_with(local: true, method: :get, url: guides_path ) do |form| %>
       <div class="fields">
         <span>
           <%= form.label :search_keyword, I18n.t('views.messages.search_by_keyword') %>
           <%= form.text_field :search_keyword, value: @search_keyword, placeholder: I18n.t('views.messages.search_by_keyword') %>
-        </span>
-        <span>
-          <%= form.label :search_prefecture, I18n.t('views.messages.search_prefectures') %>
-          <%= form.select :search_prefecture, Guide.prefectures.keys, { include_blank: I18n.t('views.messages.please_selected'), selected: @search_prefecture } %>
         </span>
       </div>
       <div class="actions">
