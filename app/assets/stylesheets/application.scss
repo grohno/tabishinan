@@ -207,10 +207,36 @@
 /* footer */
 
 .fixed_footer {
-  padding: 10px 0;
+  padding: 300px 0 10px;
 }
 .fixed_footer .container {
   text-align: center;
+  position: relative;
+}
+.fixed_footer .container::before {
+  content: "";
+  width: 400px;
+  height: 243px;
+  background-image:url("/assets/bottom_image.png");
+  background-image:image-url("/assets/bottom_image.png");
+  background-repeat:no-repeat;
+  background-size:contain;
+  position: absolute;
+  top: -260px;
+  left: 50%;
+  margin-left: -200px;
+}
+
+@media only screen and (max-width: 768px){
+  .fixed_footer {
+    padding: 200px 0 10px;
+  }
+  .fixed_footer .container::before  {
+    width: 200px;
+    height: 121px;
+    top: -140px;
+    margin-left: -100px;
+  }
 }
 
 /* drawer */
