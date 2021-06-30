@@ -58,14 +58,14 @@
           </td>
         </tr>
         <tr>
-          <th>フォローしたユーザー</th>
+          <th>フォローユーザー</th>
           <td>
             <span class="follower_count"><%= @user.following.count %>件</span>
             <%= link_to I18n.t('views.messages.go_following_index'), relationships_path, class: "goto_show" %>
           </td>
         </tr>
         <tr>
-          <th>フォローされているユーザー</th>
+          <th>フォロワーユーザー</th>
           <td>
             <span class="follower_count"><%= @user.followers.count %>件</span>
             <%= link_to I18n.t('views.messages.go_followers_index'), followed_relationships_path, class: "goto_show" %>
