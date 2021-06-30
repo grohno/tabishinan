@@ -5,6 +5,10 @@ class RelationshipsController < ApplicationController
     @followers = current_user.following.all.page(params[:page]).per(12)
   end
 
+  def followed
+    @followed = current_user.followers.all.page(params[:page]).per(12)
+  end
+
   respond_to? :js
   def create
     @user = User.find(params[:relationship][:followed_id])
