@@ -1,0 +1,37 @@
+<article>
+<h2>フォローされているユーザー一覧</h2>
+
+<div class="user_list">
+  <ul>
+  <% if @followed.size != 0 %>
+    <% @followed.each do |follower| %>
+      <li>
+        <p class="img">
+          <% if follower.image.url != nil %>
+          <%= image_tag follower.image.url %>
+          <% else %>
+          <%= image_tag 'no_image.jpg' %>
+          <% end %>
+        </p>
+        <p class="name">
+          <%= follower.name %>さん
+        </p>
+        <p class="btn_group"><%= link_to I18n.t('views.messages.show'), user_path(follower.id), class: "show_user" %></p>
+      </li>
+    <% end %>
+  <% else %>
+    <li><p>フォローされいるユーザーはまだいません。</p></li>
+  <% end %>
+  </ul>
+</div>
+
+<div class="pagination_block">
+  <%= paginate @followed %>
+</div>
+
+<div class="lower_nav">
+  <%= link_to I18n.t('views.messages.back_index'), guides_path %>
+  <%= link_to I18n.t('views.messages.back_usershow'), user_path(current_user.id) %>
+</div>
+
+</article>

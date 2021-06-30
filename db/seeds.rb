@@ -252,6 +252,22 @@ end
                )
 end
 
+13.times do |n|
+  follower_id = n + 6
+  followed_id = 1
+  Relationship.create!(follower_id: follower_id,
+               followed_id: followed_id,
+               )
+end
+
+13.times do |n|
+  follower_id = n + 7
+  followed_id = 2
+  Relationship.create!(follower_id: follower_id,
+               followed_id: followed_id,
+               )
+end
+
 1.times do |n|
   sender_id = 2
   recipient_id = 1
